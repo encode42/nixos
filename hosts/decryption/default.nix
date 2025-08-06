@@ -22,7 +22,7 @@
     (flakeRoot + /modules/desktop/environments/gnome.nix)
   ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_hardened;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   hardware.nvidia.prime = {
     amdgpuBusId = "PCI:4:0:0";

@@ -23,7 +23,7 @@
     (flakeRoot + /modules/common/virtualization.nix)
   ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.hostName = "encryption";
 
