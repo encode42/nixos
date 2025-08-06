@@ -8,3 +8,7 @@ Personal-use NixOS configuration files.
 - `lib`: Helper functions
 - `modules`: System modules and relevant configuration
 - `packages`: Program package configuration
+
+Useful resources:
+- [Disko Quickstart](https://github.com/nix-community/disko/blob/master/docs/quickstart.md)
+- `sudo nixos-install --no-root-passwd --flake github:encode42/nixos#host`
