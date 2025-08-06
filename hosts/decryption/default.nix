@@ -1,0 +1,35 @@
+{
+  flakeRoot,
+  nixos-hardware,
+  pkgs,
+  ...
+}:
+
+{
+  imports = [
+    ./hardware-configuration.nix
+    ./disk.nix
+    (flakeRoot + /hardware/laptop.nix) # TODO: Automatically add this in mkSystem
+    (flakeRoot + /hardware/cpu/amd.nix)
+    (flakeRoot + /hardware/gpu/nvidia.nix)
+
+    ./users
+
+    (flakeRoot + /modules/common)
+
+    (flakeRoot + /modules/common/boot/systemd-boot.nix)
+    (flakeRoot + /modules/common/system/audio.nix)
+    (flakeRoot + /modules/desktop/environments/gnome.nix)
+  ];
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_hardened;
+
+  hardware.nvidia.prime = {
+    amdgpuBusId = "PCI:4:0:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+
+  networking.hostName = "decryption";
+
+  system.stateVersion = "25.05";
+}

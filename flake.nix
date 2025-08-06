@@ -1,0 +1,62 @@
+{
+  description = "Personal-use NixOS configuration";
+
+  inputs = {
+    # Basic Nix/OS functionality
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    disko = {
+      url = "github:nix-community/disko/v1.12.0";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Package alternatives
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Window/desktop managers
+    niri = {
+      url = "github:sodiboo/niri-flake";
+    };
+
+    # Declarative addon systems
+    nix-jetbrains-plugins = {
+      url = "github:theCapypara/nix-jetbrains-plugins";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+  };
+
+  outputs = args: import ./outputs.nix args;
+}

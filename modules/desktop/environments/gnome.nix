@@ -1,0 +1,50 @@
+{ pkgs, ... }:
+
+{
+  imports = [
+    ./common.nix
+  ];
+
+  services.xserver = {
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
+  environment.gnome.excludePackages = with pkgs; [
+    snapshot
+    gnome-connections
+    gnome-tour
+    yelp
+    epiphany
+    totem
+    gnome-music
+    seahorse
+  ];
+
+  services.gvfs.enable = true;
+
+  qt = {
+    enable = true;
+
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
+
+  services.udev.packages = with pkgs; [
+    gnome-settings-daemon
+  ];
+
+  services.dbus.packages = with pkgs; [
+    gcr
+  ];
+
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.appindicator
+
+    gnome-calendar
+    gnome-feeds
+
+    celluloid
+    zenity
+  ];
+}
