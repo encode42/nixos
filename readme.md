@@ -12,3 +12,4 @@ Personal-use NixOS configuration files.
 Useful resources:
 - [Disko Quickstart](https://github.com/nix-community/disko/blob/master/docs/quickstart.md)
 - `sudo nixos-install --no-root-passwd --flake github:encode42/nixos#host`
+- don't forget to set password! `sudo nixos-enter -c "passwd user"`
