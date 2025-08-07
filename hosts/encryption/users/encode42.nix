@@ -19,6 +19,9 @@
     (flakeRoot + /packages/desktop/steam.nix)
   ];
 
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "encode42";
+
   home-manager.users.encode42 = {
     imports = [
       ../homes/encode42.nix
