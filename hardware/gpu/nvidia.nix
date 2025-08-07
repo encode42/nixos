@@ -17,7 +17,7 @@
   ];
 
   hardware.nvidia = {
-    open = true;
+    open = false; # Currently unable to build
 
     modesetting.enable = isLaptop;
 
