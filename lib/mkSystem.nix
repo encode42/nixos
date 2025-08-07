@@ -6,7 +6,7 @@
 {
   name,
   system,
-  isLaptop ? false
+  isLaptop ? false,
 }:
 
 inputs.nixpkgs.lib.nixosSystem {
