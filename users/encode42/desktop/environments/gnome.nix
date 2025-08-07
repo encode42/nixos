@@ -1,13 +1,26 @@
 { flakeRoot, ... }:
 
 let
-  iconSource = "${flakeRoot}/users/encode42/desktop/42.svg";
+  userIcon = flakeRoot + /users/encode42/desktop/42.svg;
+
+  userFile = ''
+    [User]
+    Icon=/var/lib/AccountsService/icons/encode42
+  '';
 in
 {
-  environment.etc."AccountsService/users/encode42".text = ''
-    [User]
-    Icon=${iconSource}
-  '';
+  systemd.tmpfiles.rules = [
+    "d /var/lib/AccountsService/users 0755 root root -"
+    "d /var/lib/AccountsService/icons 0755 root root -"
+    "f /var/lib/AccountsService/users/encode42 0644 root root -"
+    "f /var/lib/AccountsService/icons/encode42 0644 root root -"
+  ];
 
-  environment.etc."AccountsService/icons/encode42".source = iconSource;
+  system.activationScripts.copy-profile-picture-encode42 = ''
+    cp ${userIcon} /var/lib/AccountsService/icons/encode42
+    echo "${userFile}" > /var/lib/AccountsService/users/encode42
+
+    chown root:root /var/lib/AccountsService/{icons,users}/encode42
+    chmod 0644 /var/lib/AccountsService/{icons,users}/encode42
+  '';
 }
