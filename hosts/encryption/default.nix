@@ -16,7 +16,7 @@
 
     (flakeRoot + /modules/common)
 
-    (flakeRoot + /modules/common/boot/systemd-boot.nix)
+    (flakeRoot + /modules/common/boot/secureboot.nix)
     (flakeRoot + /modules/common/system/audio.nix)
     (flakeRoot + /modules/desktop/environments/gnome.nix)
 
