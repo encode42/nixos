@@ -15,6 +15,7 @@
     (flakeRoot + /packages/desktop/gnome/goldwarden.nix)
     (flakeRoot + /packages/desktop/gnome/localsend.nix)
 
+    (flakeRoot + /packages/desktop/dolphin.nix)
     (flakeRoot + /packages/desktop/steam.nix)
   ];
 

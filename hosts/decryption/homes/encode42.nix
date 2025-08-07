@@ -30,6 +30,7 @@
   ];
 
   home.packages = with pkgs; [
+    dolphin-emu
     r2modman
 
     slack
