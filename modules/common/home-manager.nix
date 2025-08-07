@@ -3,6 +3,7 @@
   home-manager,
   pkgs,
   pkgs-unstable,
+  isLaptop,
   ...
 }:
 
@@ -17,7 +18,12 @@
     backupFileExtension = "bak";
 
     extraSpecialArgs = {
-      inherit flakeRoot pkgs pkgs-unstable;
+      inherit
+        flakeRoot
+        pkgs
+        pkgs-unstable
+        isLaptop
+        ;
     };
   };
 

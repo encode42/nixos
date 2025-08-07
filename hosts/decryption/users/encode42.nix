@@ -8,6 +8,7 @@
 {
   imports = [
     (flakeRoot + /users/encode42/common)
+    (flakeRoot + /users/encode42/desktop/environments/gnome.nix)
 
     (flakeRoot + /packages/common/yubikey.nix)
 

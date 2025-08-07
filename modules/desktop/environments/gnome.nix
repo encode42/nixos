@@ -30,6 +30,22 @@
     style = "adwaita-dark";
   };
 
+  programs.dconf = {
+    enable = true;
+
+    profiles.user.databases = [
+      {
+        settings = {
+          "org/gnome/shell" = {
+            enabled-extensions = with pkgs; [
+              gnomeExtensions.appindicator.extensionUuid
+            ];
+          };
+        };
+      }
+    ];
+  };
+
   services.udev.packages = with pkgs; [
     gnome-settings-daemon
   ];

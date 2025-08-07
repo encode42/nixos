@@ -17,6 +17,8 @@
     (flakeRoot + /homes/encode42/desktop/cursor.nix)
     (flakeRoot + /homes/encode42/desktop/fonts.nix)
 
+    (flakeRoot + /homes/encode42/desktop/environments/gnome.nix)
+
     (flakeRoot + /homes/encode42/desktop/jetbrains/intellij.nix)
     (flakeRoot + /homes/encode42/desktop/jetbrains/rustrover.nix)
     (flakeRoot + /homes/encode42/desktop/jetbrains/webstorm.nix)

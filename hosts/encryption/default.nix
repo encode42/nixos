@@ -25,6 +25,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
+  time.timeZone = "US/Eastern";
+
   networking.hostName = "encryption";
 
   system.stateVersion = "24.05";
