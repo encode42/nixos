@@ -14,6 +14,10 @@
         clock-format = "12h";
       };
 
+      "org/gnome/shell" = {
+        favorite-apps = [];
+      };
+
       "org/gnome/desktop/search-providers" = {
         disabled = [
           "org.gnome.Characters.desktop"
