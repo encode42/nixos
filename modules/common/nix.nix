@@ -24,7 +24,7 @@
         "flakes"
       ];
 
-      download-buffer-size = 268435456;
+      download-buffer-size = 512000000;
     };
   };
 
