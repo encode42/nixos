@@ -3,6 +3,7 @@
     ./locale/en_US.nix
 
     ./network/firewall.nix
+    ./network/ssh.nix
 
     ./system/coreutils.nix
     ./system/firmware.nix
