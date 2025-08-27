@@ -1,4 +1,4 @@
-{ isLaptop, ... }:
+{ lib, isLaptop, ... }:
 
 {
   dconf = {
@@ -15,7 +15,7 @@
       };
 
       "org/gnome/shell" = {
-        favorite-apps = [];
+        favorite-apps = [ ];
       };
 
       "org/gnome/desktop/search-providers" = {
@@ -37,7 +37,7 @@
         night-light-enabled = true;
         night-light-schedule-automatic = true;
 
-        night-light-temperature = "uint32 3700";
+        night-light-temperature = lib.hm.gvariant.mkUint32 3700;
       };
 
       "org/gnome/desktop/privacy" = {
