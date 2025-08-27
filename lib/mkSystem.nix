@@ -38,8 +38,8 @@ inputs.nixpkgs.lib.nixosSystem {
 
     ../hosts/${name}
   ]
-  ++ extraModules
-  ++ inputs.nixpkgs.lib.optional isLaptop ../hardware/laptop.nix;
+  ++ inputs.nixpkgs.lib.optional isLaptop ../hardware/laptop.nix
+  ++ extraModules;
 
   specialArgs = {
     inherit
