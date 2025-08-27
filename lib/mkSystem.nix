@@ -1,6 +1,6 @@
 {
   inputs,
-  flakeRootPath,
+  flakeRoot,
 }:
 
 {
@@ -9,6 +9,25 @@
   isLaptop ? false,
 }:
 
+let
+  pkgs = import inputs.nixpkgs {
+    inherit system;
+
+    config.allowUnfree = true;
+  };
+
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    inherit system;
+
+    config.allowUnfree = true;
+  };
+
+  flakeLib = import ./default.nix {
+    inherit pkgs;
+
+    nix-jetbrains-plugins = inputs.nix-jetbrains-plugins;
+  };
+in
 inputs.nixpkgs.lib.nixosSystem {
   inherit system;
 
@@ -20,26 +39,17 @@ inputs.nixpkgs.lib.nixosSystem {
   ];
 
   specialArgs = {
-    inherit isLaptop;
-
-    flakeRoot = flakeRootPath;
-
-    pkgs = import inputs.nixpkgs {
-      inherit system;
-
-      config.allowUnfree = true;
-    };
-
-    pkgs-unstable = import inputs.nixpkgs-unstable {
-      inherit system;
-
-      config.allowUnfree = true;
-    };
+    inherit
+      flakeRoot
+      flakeLib
+      pkgs
+      pkgs-unstable
+      isLaptop
+      ;
 
     lanzaboote = inputs.lanzaboote;
     nixos-hardware = inputs.nixos-hardware;
     home-manager = inputs.home-manager;
-    nix-jetbrains-plugins = inputs.nix-jetbrains-plugins;
     firefox-addons = inputs.firefox-addons;
     nixcord = inputs.nixcord;
   };

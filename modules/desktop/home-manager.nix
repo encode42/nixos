@@ -1,5 +1,4 @@
 {
-  nix-jetbrains-plugins,
   nixcord,
   firefox-addons,
   ...
@@ -16,7 +15,7 @@
     ];
 
     extraSpecialArgs = {
-      inherit nix-jetbrains-plugins firefox-addons;
+      inherit firefox-addons;
     };
   };
 }

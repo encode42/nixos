@@ -4,7 +4,7 @@ let
   mkSystem = import ./lib/mkSystem.nix {
     inherit inputs;
 
-    flakeRootPath = ./.;
+    flakeRoot = ./.;
   };
 in
 {

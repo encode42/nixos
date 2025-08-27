@@ -1,18 +1,12 @@
 {
-  flakeRoot,
-  nix-jetbrains-plugins,
+  flakeLib,
   pkgs,
   ...
 }:
 
-let
-  customJetbrainsPackage = import (flakeRoot + /lib/customJetbrainsPackage.nix) {
-    inherit nix-jetbrains-plugins pkgs;
-  };
-in
 {
   home.packages = [
-    (customJetbrainsPackage {
+    (flakeLib.customJetbrainsPackage {
       idePackage = pkgs.jetbrains.webstorm;
 
       pluginIds = [

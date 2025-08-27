@@ -1,5 +1,6 @@
 {
   flakeRoot,
+  flakeLib,
   home-manager,
   pkgs,
   pkgs-unstable,
@@ -20,6 +21,7 @@
     extraSpecialArgs = {
       inherit
         flakeRoot
+        flakeLib
         pkgs
         pkgs-unstable
         isLaptop
