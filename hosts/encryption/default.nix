@@ -7,20 +7,20 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
     nixos-hardware.nixosModules.msi-b350-tomahawk
+    nixos-hardware.nixosModules.common-pc-ssd
+    ./hardware-configuration.nix
     (flakeRoot + /hardware/cpu/amd.nix)
     (flakeRoot + /hardware/gpu/amd.nix)
 
-    ./users
-
     (flakeRoot + /modules/common)
-
     (flakeRoot + /modules/common/boot/secureboot.nix)
     (flakeRoot + /modules/common/system/audio.nix)
+    (flakeRoot + /modules/common/virtualization.nix)
+
     (flakeRoot + /modules/desktop/environments/gnome.nix)
 
-    (flakeRoot + /modules/common/virtualization.nix)
+    ./users
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;

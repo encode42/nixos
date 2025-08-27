@@ -7,19 +7,20 @@
 
 {
   imports = [
+    nixos-hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     ./disk.nix
     (flakeRoot + /hardware/laptop.nix) # TODO: Automatically add this in mkSystem
     (flakeRoot + /hardware/cpu/amd.nix)
     (flakeRoot + /hardware/gpu/nvidia.nix)
 
-    ./users
-
     (flakeRoot + /modules/common)
-
     (flakeRoot + /modules/common/boot/systemd-boot.nix)
     (flakeRoot + /modules/common/system/audio.nix)
+
     (flakeRoot + /modules/desktop/environments/gnome.nix)
+
+    ./users
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
