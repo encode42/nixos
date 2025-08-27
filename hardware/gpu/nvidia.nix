@@ -12,9 +12,9 @@
   ];
 
   services.xserver.videoDrivers = [
-    "modesetting" # TODO: add if isLaptop
     "nvidia"
-  ];
+  ]
+  ++ lib.optional isLaptop "modesetting";
 
   hardware.nvidia = {
     open = false; # Currently unable to build

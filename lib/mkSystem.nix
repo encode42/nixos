@@ -6,6 +6,7 @@
 {
   name,
   system,
+  extraModules ? [ ],
   isLaptop ? false,
 }:
 
@@ -36,7 +37,9 @@ inputs.nixpkgs.lib.nixosSystem {
     inputs.disko.nixosModules.disko
 
     ../hosts/${name}
-  ];
+  ]
+  ++ extraModules
+  ++ inputs.nixpkgs.lib.optional isLaptop ../hardware/laptop.nix;
 
   specialArgs = {
     inherit

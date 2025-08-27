@@ -10,7 +10,6 @@
     nixos-hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     ./disk.nix
-    (flakeRoot + /hardware/laptop.nix) # TODO: Automatically add this in mkSystem
     (flakeRoot + /hardware/cpu/amd.nix)
     (flakeRoot + /hardware/gpu/nvidia.nix)
 
