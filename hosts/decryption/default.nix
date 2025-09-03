@@ -29,7 +29,5 @@
     nvidiaBusId = "PCI:1:0:0";
   };
 
-  networking.hostName = "decryption";
-
   system.stateVersion = "25.05";
 }

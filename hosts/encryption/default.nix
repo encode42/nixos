@@ -27,7 +27,5 @@
 
   time.timeZone = "US/Eastern";
 
-  networking.hostName = "encryption";
-
   system.stateVersion = "24.05";
 }

@@ -4,7 +4,7 @@
 }:
 
 {
-  name,
+  hostName,
   system,
   extraModules ? [ ],
   isLaptop ? false,
@@ -37,6 +37,11 @@ inputs.nixpkgs.lib.nixosSystem {
     inputs.disko.nixosModules.disko
 
     ../hosts/${name}
+    ../hosts/${hostName}
+
+    {
+      networking.hostName = hostName;
+    }
   ]
   ++ inputs.nixpkgs.lib.optional isLaptop ../hardware/laptop.nix
   ++ extraModules;
@@ -48,6 +53,7 @@ inputs.nixpkgs.lib.nixosSystem {
       pkgs
       pkgs-unstable
       isLaptop
+      hostName
       ;
 
     lanzaboote = inputs.lanzaboote;

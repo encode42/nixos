@@ -12,12 +12,12 @@ in
 
   nixosConfigurations = {
     encryption = mkSystem {
-      name = "encryption";
+      hostName = "encryption";
       system = "x86_64-linux";
     };
 
     decryption = mkSystem {
-      name = "decryption";
+      hostName = "decryption";
       system = "x86_64-linux";
 
       isLaptop = true;
