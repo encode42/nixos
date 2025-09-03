@@ -24,7 +24,7 @@
       ../homes/encode42.nix
     ];
 
-    home.stateVersion = "24.05";
+    home.stateVersion = "25.05";
   };
 
   users.users.encode42.extraGroups = [
