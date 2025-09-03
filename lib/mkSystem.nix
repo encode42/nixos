@@ -36,7 +36,6 @@ inputs.nixpkgs.lib.nixosSystem {
     inputs.lix-module.nixosModules.default
     inputs.disko.nixosModules.disko
 
-    ../hosts/${name}
     ../hosts/${hostName}
 
     {

@@ -9,7 +9,7 @@
   imports = [
     nixos-hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
-    ./disk.nix
+    ./disks.nix
     (flakeRoot + /hardware/cpu/amd.nix)
     (flakeRoot + /hardware/gpu/nvidia.nix)
 
