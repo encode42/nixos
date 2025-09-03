@@ -22,5 +22,10 @@ in
 
       isLaptop = true;
     };
+
+    prospect = mkSystem {
+      hostName = "prospect";
+      system = "x86_64-linux";
+    };
   };
 }
