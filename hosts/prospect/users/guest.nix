@@ -16,7 +16,7 @@
   users.users.guest = {
     isNormalUser = true;
 
-    name = "Guest";
+    description = "Guest";
   };
 
   home-manager.users.guest = {
