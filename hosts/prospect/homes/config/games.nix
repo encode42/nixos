@@ -29,5 +29,7 @@ in
   home.packages = with pkgs; [
     r2modman
     pkgs-unstable.olympus
-  ];
+  ]
+  ++ stable-emulators
+  ++ unstable-emulators;
 }
