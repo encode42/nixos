@@ -8,14 +8,27 @@
 
 let
   persistentDirectories = [
+    ".manpath"
+    ".nix-defexpr"
     ".nix-profile"
+
+    ".steam"
+    ".local/share/Steam/steamapps/common"
   ];
 
-  findExclusions = builtins.concatStringsSep " \\\n" (map (path:
+  persistentFiles = [
+    ".local/share/Steam/steamapps/libraryfolders.vdf"
+  ];
+
+  findDirectoryExclusions = builtins.concatStringsSep " \\\n" (map (path:
     let
       baseExclusion = "-not -path '${config.users.users.guest.home}/${path}'";
     in
     "${baseExclusion} ${baseExclusion}/*"
+  ) persistentDirectories);
+
+  findFileExclusions = builtins.concatStringsSep " \\\n" (map (path:
+    "-not -path '${config.users.users.guest.home}/${path}'"
   ) persistentDirectories);
 in
 {
@@ -54,7 +67,8 @@ in
       ExecStart = pkgs.writeShellScript "clean-guest-home" ''
         find ${config.users.users.guest.home} \
           -mindepth 1 \
-          ${findExclusions} \
+          ${findDirectoryExclusions} \
+          ${findFileExclusions} \
           -exec echo {} +
       '';
     };
