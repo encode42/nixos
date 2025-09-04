@@ -44,8 +44,6 @@ in
     isNormalUser = true;
 
     description = "Guest";
-
-    password = "";
   };
 
   home-manager.users.guest = {
@@ -53,6 +51,13 @@ in
       ../homes/config/games.nix
       ../homes/guest.nix
     ];
+
+    dconf.settings = {
+      "org/gnome/desktop/screensaver" = {
+        lock-enabled = false;
+        lock-on-suspend = false;
+      };
+    };
 
     home.stateVersion = "25.05";
   };
