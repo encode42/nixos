@@ -18,8 +18,11 @@ let
     ".local/share/Steam/steamapps/*.acf"
     ".local/share/Steam/steamapps/common"
 
-    ".local/share/PrismLauncher/prismlauncher.cfg"
+    ".local/share/PrismLauncher/prismlauncher.cfg" # TODO: Create
     ".local/share/PrismLauncher/instances"
+
+    ".config/mgba/config.ini" # TODO: Create
+    ".mgba" # TODO: Move to .config/mgba
   ];
 
   rsyncExcludes = builtins.concatStringsSep " \\\n" (map (path: "--exclude='${path}'") persistentPaths);
