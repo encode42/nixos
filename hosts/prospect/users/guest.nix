@@ -13,6 +13,7 @@ let
     ".nix-profile"
 
     ".steam"
+    ".local/share/Steam/package"
     ".local/share/Steam/steamapps/common"
   ];
 
@@ -22,13 +23,13 @@ let
 
   findDirectoryExclusions = builtins.concatStringsSep " \\\n" (map (path:
     let
-      baseExclusion = "-not -path '${config.users.users.guest.home}/${path}'";
+      baseExclusion = "-not -path './${config.users.users.guest.home}/${path}";
     in
-    "${baseExclusion} ${baseExclusion}/*"
+    "${baseExclusion}' ${baseExclusion}/*'"
   ) persistentDirectories);
 
   findFileExclusions = builtins.concatStringsSep " \\\n" (map (path:
-    "-not -path '${config.users.users.guest.home}/${path}'"
+    "-not -path './${config.users.users.guest.home}/${path}'"
   ) persistentDirectories);
 in
 {
