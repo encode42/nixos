@@ -34,6 +34,8 @@ in
   imports = [
     (flakeRoot + /homes/encode42/common)
 
+    (flakeRoot + /homes/encode42/common/github.nix)
+
     (flakeRoot + /homes/encode42/common/bat.nix)
     (flakeRoot + /homes/encode42/common/eza.nix)
     (flakeRoot + /homes/encode42/common/xh.nix)
