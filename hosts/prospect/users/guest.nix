@@ -7,30 +7,17 @@
 }:
 
 let
-  persistentDirectories = [
+  persistentPaths = [
     ".manpath"
     ".nix-defexpr"
     ".nix-profile"
 
-    ".steam"
     ".local/share/Steam/package"
     ".local/share/Steam/steamapps/common"
-  ];
-
-  persistentFiles = [
     ".local/share/Steam/steamapps/libraryfolders.vdf"
   ];
 
-  findDirectoryExclusions = builtins.concatStringsSep " \\\n" (map (path:
-    let
-      baseExclusion = "-not -path './${config.users.users.guest.home}/${path}";
-    in
-    "${baseExclusion}' ${baseExclusion}/*'"
-  ) persistentDirectories);
-
-  findFileExclusions = builtins.concatStringsSep " \\\n" (map (path:
-    "-not -path './${config.users.users.guest.home}/${path}'"
-  ) persistentDirectories);
+  rsyncExcludes = builtins.concatStringsSep " \\\n" (map (path: "--exclude='${path}'") persistentPaths);
 in
 {
   imports = [
@@ -62,6 +49,10 @@ in
     home.stateVersion = "25.05";
   };
 
+  environment.systemPackages = with pkgs; [
+    rsync
+  ];
+
   systemd.services.clean-guest-home = {
     description = "Perform guest account cleanup";
     wantedBy = [ "halt.target" "reboot.target" ];
@@ -71,11 +62,9 @@ in
       Type = "oneshot";
 
       ExecStart = pkgs.writeShellScript "clean-guest-home" ''
-        find ${config.users.users.guest.home} \
-          -mindepth 1 \
-          ${findDirectoryExclusions} \
-          ${findFileExclusions} \
-          -exec echo {} +
+        rsync -a --delete \
+          ${rsyncExcludes} \
+          /var/empty ${config.users.users.guest.home}
       '';
     };
   };
