@@ -7,17 +7,17 @@
 
 {
   imports = [
+    ../config/games.nix
+
     (flakeRoot + /users/encode42/common)
     (flakeRoot + /users/encode42/desktop/environments/gnome.nix)
 
     (flakeRoot + /packages/desktop/gnome/localsend.nix)
-
-    (flakeRoot + /packages/desktop/dolphin.nix)
-    (flakeRoot + /packages/desktop/steam.nix)
   ];
 
   home-manager.users.encode42 = {
     imports = [
+      ../homes/config/games.nix
       ../homes/encode42.nix
     ];
 

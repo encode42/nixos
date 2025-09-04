@@ -1,0 +1,33 @@
+{ pkgs, pkgs-unstable, ... }:
+
+let
+  stable-emulators = with pkgs; [
+    punes-qt6 # Nintendo Entertainment System
+    blastem # Sega Genesis
+    bsnes-hd # Nintendo Super Entertainment System
+    yabause # Sega Saturn
+    duckstation # Sony Playstation 1
+    rmg-wayland # Nintendo 64
+    flycast # Sega Dreamcast
+    mgba # Nintendo Game Boy
+    pcsx2 # Sony Playstation 2
+    xemu # Microsoft Xbox
+    melonDS # Nintendo DS
+    ppsspp-qt # Sony Playstation Portable
+    rpcs3 # Sony Playstation 3
+    azahar # Nintendo 3DS
+    cemu # Nintendo Wii U
+  ];
+
+  unstable-emulators = with pkgs-unstable; [
+    xenia-canary # Microsoft Xbox 360
+  ];
+
+  # TODO: Vita3k and Gearsystem
+in
+{
+  home.packages = with pkgs; [
+    r2modman
+    pkgs-unstable.olympus
+  ];
+}
