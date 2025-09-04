@@ -36,10 +36,6 @@ in
 
     (flakeRoot + /homes/encode42/common/github.nix)
 
-    (flakeRoot + /homes/encode42/common/bat.nix)
-    (flakeRoot + /homes/encode42/common/eza.nix)
-    (flakeRoot + /homes/encode42/common/xh.nix)
-
     (flakeRoot + /homes/encode42/desktop/cursor.nix)
     (flakeRoot + /homes/encode42/desktop/fonts.nix)
 
@@ -47,12 +43,10 @@ in
 
     (flakeRoot + /homes/encode42/desktop/firefox.nix)
 
-    (flakeRoot + /homes/encode42/desktop/prismlauncher.nix)
+    (flakeRoot + /homes/shared/desktop/prismlauncher.nix)
   ];
 
   home.packages = with pkgs; [
-    r2modman
-    pkgs-unstable.olympus
   ]
   ++ stable-emulators
   ++ unstable-emulators;

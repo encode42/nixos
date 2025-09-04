@@ -1,11 +1,11 @@
-{ pkgs, ... }:
-
 {
-  programs.bat = {
-    enable = true;
+  imports = [
+    ../../shared/common/bat.nix
+  ];
 
+  programs.bat = {
     config = {
-      paging = "never";
+      color = "auto";
 
       theme = "base16";
 
@@ -14,12 +14,4 @@
       ];
     };
   };
-
-  home.shellAliases = {
-    cat = "bat";
-  };
-
-  home.packages = with pkgs; [
-    bat
-  ];
 }

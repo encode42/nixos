@@ -26,7 +26,7 @@
     (flakeRoot + /homes/encode42/desktop/discord.nix)
     (flakeRoot + /homes/encode42/desktop/firefox.nix)
 
-    (flakeRoot + /homes/encode42/desktop/prismlauncher.nix)
+    (flakeRoot + /homes/shared/desktop/prismlauncher.nix)
   ];
 
   home.packages = with pkgs; [

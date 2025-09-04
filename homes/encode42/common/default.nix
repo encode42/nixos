@@ -7,7 +7,8 @@
     ./git.nix
 
     ./bat.nix
-    ./eza.nix
-    ./xh.nix
+
+    ../../shared/common/eza.nix
+    ../../shared/common/xh.nix
   ];
 }
