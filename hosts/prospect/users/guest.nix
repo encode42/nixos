@@ -1,10 +1,23 @@
 {
+  config,
   lib,
   flakeRoot,
   pkgs,
   ...
 }:
 
+let
+  persistentDirectories = [
+    ".nix-profile"
+  ];
+
+  findExclusions = builtins.concatStringsSep " \\\n" (map (path:
+    let
+      baseExclusion = "-not -path '${config.users.users.guest.home}/${path}'";
+    in
+    "${baseExclusion} ${baseExclusion}/*"
+  ) persistentDirectories);
+in
 {
   imports = [
     ../config/games.nix
@@ -39,14 +52,9 @@
       Type = "oneshot";
 
       ExecStart = pkgs.writeShellScript "clean-guest-home" ''
-        find ${home-manager.users.guest.homeDirectory} \
+        find ${config.users.users.guest.home} \
           -mindepth 1 \
-          -not -path "$HOME/.nix-profile" \
-          -not -path "$HOME/.nix-profile/*" \
-          -not -path "$HOME/.config" \
-          -not -path "$HOME/.config/*" \
-          -not -path "$HOME/.local" \
-          -not -path "$HOME/.local/*" \
+          ${findExclusions} \
           -exec echo {} +
       '';
     };
