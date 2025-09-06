@@ -27,5 +27,14 @@ in
       hostName = "prospect";
       system = "x86_64-linux";
     };
+
+    index = mkSystem {
+      hostName = "index";
+      system = "x86_64-linux";
+
+      extraModules = [
+        inputs.emby-flake.nixosModules.default
+      ];
+    };
   };
 }

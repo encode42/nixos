@@ -56,6 +56,11 @@
 
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    # Server packages
+    emby-flake = {
+      url = "github:tofu-salad/emby-server-flake";
+    };
   };
 
   outputs = args: import ./outputs.nix args;

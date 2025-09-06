@@ -60,5 +60,6 @@ inputs.nixpkgs.lib.nixosSystem {
     home-manager = inputs.home-manager;
     firefox-addons = inputs.firefox-addons;
     nixcord = inputs.nixcord;
+    emby-flake = inputs.emby-flake;
   };
 }

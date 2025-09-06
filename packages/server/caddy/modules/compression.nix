@@ -1,0 +1,5 @@
+{
+  basic = ''
+    encode zstd gzip
+  '';
+}

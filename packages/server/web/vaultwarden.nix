@@ -1,0 +1,68 @@
+{
+  hosts ? [ ],
+}:
+
+{ flakeLib, pkgs-unstable, ... }:
+
+let
+  socket = "/run/vaultwarden/vaultwarden.sock";
+in
+{
+  imports = [
+    ../databases/postgresql.nix
+  ];
+
+  services.postgresql = {
+    ensureUsers = [
+      {
+        name = "vaultwarden";
+        ensureDBOwnership = true;
+      }
+    ];
+
+    ensureDatabases = [ "vaultwarden" ];
+  };
+
+  services.vaultwarden = {
+    enable = true;
+
+    dbBackend = "postgresql";
+
+    config = {
+      ICON_SERVICE = "internal";
+      ICON_REDIRECT_CODE = 301;
+
+      SIGNUPS_VERIFY = true;
+      REQUIRE_DEVICE_EMAIL = true;
+      SMTP_EMBED_IMAGES = false;
+
+      EMERGENCY_ACCESS_ALLOWED = false;
+      PASSWORD_HINTS_ALLOWED = false;
+      AUTHENTICATOR_DISABLE_TIME_DRIFT = true;
+
+      INVITATIONS_ALLOWED = true;
+      SIGNUPS_ALLOWED = false;
+
+      TRASH_AUTO_DELETE_DAYS = 7;
+
+      USER_ATTACHMENT_LIMIT = 51200;
+
+      # TODO: look into websockets
+      # TODO: look into push
+      # TODO: HaveIBeenPwned API Key
+
+      EXPERIMENTAL_CLIENT_FEATURE_FLAGS = "fido2-vault-credentials,simple-login-self-host-alias";
+
+      EXTENDED_LOGGING = false;
+
+      ROCKET_ADDRESS = "unix:${socket}";
+      DATABASE_URL = "postgresql:///vaultwarden?host=/run/postgresql";
+    };
+
+    package = pkgs-unstable.vaultwarden; # TODO: just use stable?
+  };
+
+  services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
+    reverse_proxy unix/${socket}
+  '';
+}
