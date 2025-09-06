@@ -31,7 +31,7 @@
 
   home.packages = with pkgs; [
     audacity
-    puddletag
+    pkgs-unstable.puddletag
 
     blockbench
 
