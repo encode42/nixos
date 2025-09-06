@@ -10,7 +10,7 @@
     nixos-hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     (flakeRoot + /hardware/cpu/amd.nix)
-    (flakeRoot + /hardware/gpu/amd.nix)
+    (flakeRoot + /hardware/gpu/nvidia.nix)
 
     (flakeRoot + /modules/common)
     (flakeRoot + /modules/common/boot/systemd-boot.nix)
