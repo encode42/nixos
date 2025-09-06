@@ -1,5 +1,6 @@
 Personal-use NixOS configuration files.
 
+### Structure
 - `hardware`: Specialized hardware configuration
 - `homes`: User-owned home-manager directories
 - `hosts`: Machine configuration
@@ -10,7 +11,13 @@ Personal-use NixOS configuration files.
 - `packages`: Program package configuration
 - `users`: Machine-owned common user configuration
 
-Useful resources:
+### Hosts
+- `encryption`: My primary desktop PC
+- `decryption`: My primary laptop
+- `prospect`: Shared media and gaming PC
+- `index`: Media and storage server
+
+### Useful resources
 - [Disko Quickstart](https://github.com/nix-community/disko/blob/master/docs/quickstart.md)
 - `sudo nixos-install --no-root-passwd --flake github:encode42/nixos#host`
 - don't forget to set password! `sudo nixos-enter -c "passwd user"`
