@@ -30,6 +30,8 @@
   ];
 
   home.packages = with pkgs; [
+    ffmpeg
+    rsgain
     audacity
     pkgs-unstable.puddletag
 
