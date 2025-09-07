@@ -9,6 +9,10 @@ let
   ];
 in
 {
+  imports = [
+    ../common/nfs.nix
+  ];
+
   services.rpcbind.enable = true;
 
   services.nfs.server = {

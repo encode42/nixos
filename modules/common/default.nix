@@ -1,5 +1,7 @@
 {
   imports = [
+    ./nfs.nix
+
     ./locale/en_US.nix
 
     ./network/firewall.nix
