@@ -24,7 +24,12 @@
         "github.com/BadAimWeeb/caddy-uwsgi-transport@v0.0.0-20240317192154-74a1008b9763"
       ];
 
-      hash = "sha256-THbBk1z14F6LhsI8feUgZxCPIFehLXlNkpxidl0soYc=";
+      hash = "sha256-LbqG168rWLMtNY0dQcedZiKuXkR6cLLNRf3S/F9dV7Y=";
     };
   };
+
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 }

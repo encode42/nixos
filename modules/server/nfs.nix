@@ -9,6 +9,8 @@ let
   ];
 in
 {
+  services.rpcbind.enable = true;
+
   services.nfs.server = {
     enable = true;
 

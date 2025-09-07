@@ -15,28 +15,30 @@
     (flakeRoot + /modules/common)
     (flakeRoot + /modules/common/boot/systemd-boot.nix)
 
-    #(flakeRoot + /modules/server/nfs.nix)
     (flakeRoot + /modules/server/openssh.nix)
 
+    (flakeRoot + /packages/server/iperf.nix)
+
     ./config/zfs.nix
+    ./config/nfs.nix
 
-    #./config/databases/mysql.nix
-    #./config/databases/postgresql.nix
+    ./config/databases/mysql.nix
+    ./config/databases/postgresql.nix
 
-    #./config/groupware/maddy.nix
+    ./config/groupware/maddy.nix
 
     #./config/media/audiobookshelf.nix
     #./config/media/emby.nix
-    #./config/media/navidrome.nix
+    ./config/media/navidrome.nix
 
     #./config/torrenting/rtorrent.nix
     #./config/torrenting/soulseek.nix
 
-    #./config/web/caddy.nix
-    #./config/web/forgejo.nix
-    #./config/web/miniflux.nix
-    #./config/web/searx.nix
-    #./config/web/vaultwarden.nix
+    ./config/web/caddy.nix
+    ./config/web/forgejo.nix
+    ./config/web/miniflux.nix
+    ./config/web/searx.nix
+    ./config/web/vaultwarden.nix
     #./config/web/wakapi.nix
 
     ./users

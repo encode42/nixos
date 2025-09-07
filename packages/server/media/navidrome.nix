@@ -64,4 +64,6 @@ in
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy unix/${socket}
   '';
+
+  users.users.caddy.extraGroups = [ config.users.users.navidrome.group ];
 }

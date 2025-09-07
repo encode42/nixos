@@ -22,7 +22,7 @@ in
   services.navidrome = {
     settings = {
       DataFolder = "/mnt/apps/navidrome";
-      MusicFolder = "/mnt/data/media/Music"; # TODO
+      MusicFolder = "/mnt/data/media/Music";
     };
 
     environmentFile = "/mnt/apps/navidrome/navidrome.env";

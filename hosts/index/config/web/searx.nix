@@ -31,6 +31,8 @@ in
 
       server = {
         base_url = "https://${host}";
+
+        secret_key = "@SEARXNG_SECRET@";
       };
     };
   };

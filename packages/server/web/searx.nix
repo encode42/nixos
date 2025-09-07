@@ -508,4 +508,6 @@
       header_up X-Real-IP {http.request.header.CF-Connecting-IP}
     }
   '';
+
+  users.users.caddy.extraGroups = [ config.users.users.searx.group ];
 }

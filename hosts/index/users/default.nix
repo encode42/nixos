@@ -6,4 +6,8 @@
 
     ./encode42.nix
   ];
+
+  users.groups.media = {
+    gid = 442;
+  };
 }

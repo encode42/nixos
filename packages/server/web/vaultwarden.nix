@@ -55,7 +55,7 @@ in
 
       EXTENDED_LOGGING = false;
 
-      ROCKET_ADDRESS = "unix:${socket}";
+      ROCKET_ADDRESS = "127.0.0.1"; # "unix:${socket}"; Supposedly, this is supported. However, it is not.
       DATABASE_URL = "postgresql:///vaultwarden?host=/run/postgresql";
     };
 
@@ -63,6 +63,6 @@ in
   };
 
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
-    reverse_proxy unix/${socket}
+    reverse_proxy :8000 # unix/${socket}
   '';
 }
