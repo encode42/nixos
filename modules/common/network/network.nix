@@ -1,13 +1,36 @@
+let
+  nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+  ];
+in
 {
-  networking.networkmanager = {
+  services.resolved = {
     enable = true;
 
-    dns = "systemd-resolved";
+    dnssec = "true";
+    domains = [ "~." ];
 
-    wifi = {
-      backend = "iwd";
+    dnsovertls = "true";
 
-      powersave = true;
+    fallbackDns = nameservers;
+
+    extraConfig = ''
+      Cache=no-negative
+    '';
+  };
+
+  networking = {
+    inherit nameservers;
+
+    networkmanager = {
+      dns = "systemd-resolved";
+
+      wifi = {
+        backend = "iwd";
+
+        powersave = true;
+      };
     };
   };
 }
