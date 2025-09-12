@@ -51,7 +51,7 @@ in
         challenge dns-01
 
         dns cloudflare {
-          api_token {env:CF_API_TOKEN}
+          api_token "{env:CF_API_TOKEN}"
         }
       '';
     };
