@@ -23,6 +23,10 @@ let
     config.allowUnfree = true;
   };
 
+  pkgs-personal = import inputs.encode42-packages {
+    inherit system;
+  };
+
   flakeLib = import ./default.nix {
     inherit pkgs;
 
@@ -42,6 +46,7 @@ inputs.nixpkgs.lib.nixosSystem {
       networking.hostName = hostName;
     }
   ]
+  ++ builtins.attrValues inputs.encode42-packages.nixosModules
   ++ inputs.nixpkgs.lib.optional isLaptop ../hardware/laptop.nix
   ++ extraModules;
 
@@ -51,6 +56,7 @@ inputs.nixpkgs.lib.nixosSystem {
       flakeLib
       pkgs
       pkgs-unstable
+      pkgs-personal
       isLaptop
       hostName
       ;

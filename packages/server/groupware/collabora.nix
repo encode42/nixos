@@ -10,36 +10,38 @@
   services.collabora-online = {
     enable = true;
 
-    languagetool = {
-      enabled = true;
+    settings = {
+      languagetool = {
+        enabled = true;
 
-      base_url = "http://127.0.0.1:${config.services.languagetool.port}/v2";
-    };
+        base_url = "http://127.0.0.1:${toString config.services.languagetool.port}/v2";
+      };
 
-    fonts_missing = {
-      handling = "report";
-    };
+      fonts_missing = {
+        handling = "report";
+      };
 
-    per_document = {
-      idlesave_duration_secs = 15;
-      autosave_duration_secs = 60;
-      always_save_on_exit = true;
+      per_document = {
+        idlesave_duration_secs = 15;
+        autosave_duration_secs = 60;
+        always_save_on_exit = true;
 
-      redlining_as_comments = true;
+        redlining_as_comments = true;
 
-      max_concurrency = 6;
-    };
+        max_concurrency = 6;
+      };
 
-    admin_console = {
-      enable = false;
-    };
+      admin_console = {
+        enable = false;
+      };
 
-    ssl = {
-      enable = false;
-    };
+      ssl = {
+        enable = false;
+      };
 
-    wasm = {
-      enable = true;
+      wasm = {
+        enable = true;
+      };
     };
   };
 }

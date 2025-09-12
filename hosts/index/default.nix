@@ -25,11 +25,14 @@
     ./config/databases/mysql.nix
     ./config/databases/postgresql.nix
 
+    ./config/groupware/cells.nix
     ./config/groupware/maddy.nix
 
     #./config/media/audiobookshelf.nix
     #./config/media/emby.nix
     ./config/media/navidrome.nix
+
+    ./config/language/omnipoly.nix
 
     #./config/torrenting/rtorrent.nix
     #./config/torrenting/soulseek.nix

@@ -61,6 +61,13 @@
     emby-flake = {
       url = "github:tofu-salad/emby-server-flake";
     };
+
+    # My packages
+    encode42-packages = {
+      url = "github:encode42/nixos-packages";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = args: import ./outputs.nix args;
