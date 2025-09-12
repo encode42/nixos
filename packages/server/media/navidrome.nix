@@ -2,7 +2,7 @@
   hosts ? [ ],
 }:
 
-{ flakeLib, pkgs-unstable, ... }:
+{ config, flakeLib, pkgs-unstable, ... }:
 
 let
   socket = "/run/navidrome/navidrome.sock";
