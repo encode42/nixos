@@ -19,6 +19,18 @@ in
     omnipolyModule
   ];
 
+  services.libretranslate = {
+    enable = true;
+
+    port = 6400;
+  };
+
+  services.languagetool = {
+    enable = true;
+
+    port = 6200;
+  };
+
   services.omnipoly = {
     port = 6000;
   };
