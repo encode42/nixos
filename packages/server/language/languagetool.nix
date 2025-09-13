@@ -17,7 +17,7 @@ in
       maxTextLength = 380;
 
       pipelineCaching = true;
-      pipelinePrewarming = false;
+      pipelinePrewarming = true;
 
       languageModel = "${pkgs-personal.languagetool-ngrams}/share/languagetool-ngrams";
     };
