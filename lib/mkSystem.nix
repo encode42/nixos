@@ -23,9 +23,7 @@ let
     config.allowUnfree = true;
   };
 
-  pkgs-personal = import inputs.encode42-packages {
-    inherit system;
-  };
+  pkgs-personal = inputs.encode42-packages.packages.${system};
 
   flakeLib = import ./default.nix {
     inherit pkgs;
