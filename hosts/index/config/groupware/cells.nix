@@ -29,4 +29,6 @@ in
       CELLS_CONFIG = "file://${cellsHome}/pydio.json";
     };
   };
+
+  systemd.services.cells.serviceConfig.ReadWritePaths = [ "/mnt/apps/pydio" "/mnt/data/pydio" ];
 }

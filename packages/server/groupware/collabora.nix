@@ -15,6 +15,8 @@
         enabled = true;
 
         base_url = "http://127.0.0.1:${toString config.services.languagetool.port}/v2";
+
+        ssl_verification = false;
       };
 
       fonts_missing = {
@@ -43,5 +45,9 @@
         enable = true;
       };
     };
+  };
+
+  boot.kernel.sysctl = {
+    "kernel.unprivileged_userns_clone" = 1;
   };
 }
