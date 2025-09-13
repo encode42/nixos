@@ -204,7 +204,10 @@ in
   };
 
   networking.firewall.allowedTCPPorts = [
+    25
+    587
     465
+    143
     993
   ];
 }
