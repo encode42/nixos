@@ -26,10 +26,12 @@ let
   # TODO: Vita3k and Gearsystem
 in
 {
-  home.packages = with pkgs; [
-    r2modman
-    pkgs-unstable.olympus
-  ]
-  ++ stable-emulators
-  ++ unstable-emulators;
+  home.packages =
+    with pkgs;
+    [
+      r2modman
+      pkgs-unstable.olympus
+    ]
+    ++ stable-emulators
+    ++ unstable-emulators;
 }

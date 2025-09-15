@@ -1,4 +1,10 @@
-{ config, pkgs, pkgs-personal, lib, ... }:
+{
+  config,
+  pkgs,
+  pkgs-personal,
+  lib,
+  ...
+}:
 
 let
   fasttextModel = pkgs.fetchurl {

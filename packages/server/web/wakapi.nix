@@ -39,7 +39,7 @@
 
         dialect = config.services.wakapi.database.dialect;
 
-        socket = "/run/postgres"; #config.services.postgresql.settings.socket; # TODO: This causes infinite recursion
+        socket = "/run/postgres"; # config.services.postgresql.settings.socket; # TODO: This causes infinite recursion
       };
 
       security = {

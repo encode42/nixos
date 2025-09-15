@@ -30,5 +30,8 @@ in
     };
   };
 
-  systemd.services.cells.serviceConfig.ReadWritePaths = [ "/mnt/apps/pydio" "/mnt/data/pydio" ];
+  systemd.services.cells.serviceConfig.ReadWritePaths = [
+    "/mnt/apps/pydio"
+    "/mnt/data/pydio"
+  ];
 }

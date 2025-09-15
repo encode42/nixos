@@ -25,7 +25,9 @@ let
     ".mgba" # TODO: Move to .config/mgba
   ];
 
-  rsyncExcludes = builtins.concatStringsSep " \\\n" (map (path: "--exclude='${path}'") persistentPaths);
+  rsyncExcludes = builtins.concatStringsSep " \\\n" (
+    map (path: "--exclude='${path}'") persistentPaths
+  );
 in
 {
   imports = [

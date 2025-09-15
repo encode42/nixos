@@ -1,4 +1,9 @@
-{ lib, firefox-addons, pkgs, ... }:
+{
+  lib,
+  firefox-addons,
+  pkgs,
+  ...
+}:
 
 {
   programs.firefox = {

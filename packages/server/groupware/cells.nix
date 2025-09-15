@@ -1,5 +1,5 @@
 {
-  hosts ? [ ]
+  hosts ? [ ],
 }:
 
 { config, flakeLib, ... }:

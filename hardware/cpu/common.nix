@@ -1,5 +1,5 @@
 { isLaptop, ... }:
 
 {
-  #services.auto-cpufreq.enable = isLaptop;
+  #services.auto-cpufreq.enable = isLaptop; # TODO
 }
