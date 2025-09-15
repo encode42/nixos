@@ -25,7 +25,10 @@ in
     enable = true;
 
     portMappings = [
-      { from = config.services.slskd.settings.web.port; to = config.services.slskd.settings.web.port; }
+      {
+        from = config.services.slskd.settings.web.port;
+        to = config.services.slskd.settings.web.port;
+      }
     ];
 
     openVPNPorts = [

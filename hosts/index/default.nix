@@ -14,6 +14,7 @@
 
     (flakeRoot + /modules/common)
     (flakeRoot + /modules/common/boot/systemd-boot.nix)
+    (flakeRoot + /modules/common/network/dns.nix)
 
     (flakeRoot + /modules/server/openssh.nix)
 
@@ -46,10 +47,6 @@
 
     ./users
   ];
-
-  # TODO:
-  # - cells
-  # - omnipoly
 
   boot.kernelPackages = pkgs.linuxPackages_hardened;
 

@@ -25,12 +25,6 @@ in
 
     networkmanager = {
       dns = "systemd-resolved";
-
-      wifi = {
-        backend = "iwd";
-
-        powersave = true;
-      };
     };
   };
 }
