@@ -13,8 +13,14 @@
 
 let
   socket = "/run/flood/flood.sock";
+
+  rtorrentModule = import ./rtorrent.nix { };
 in
 {
+  imports = [
+    rtorrentModule
+  ];
+
   services.flood = {
     enable = true;
 
@@ -23,14 +29,16 @@ in
     ];
   };
 
-  systemd.services.flood.serviceConfig.ExecStart = lib.mkForce (utils.escapeSystemdExecArgs (
-    [
-      (lib.getExe pkgs.flood)
-      "--port ${socket}"
-      "--rundir=/var/lib/flood"
-    ]
-    ++ config.services.flood.extraArgs
-  ));
+  systemd.services.flood.serviceConfig.ExecStart = lib.mkForce (
+    utils.escapeSystemdExecArgs (
+      [
+        (lib.getExe pkgs.flood)
+        "--port ${socket}"
+        "--rundir=/var/lib/flood"
+      ]
+      ++ config.services.flood.extraArgs
+    )
+  );
 
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy unix/${socket}

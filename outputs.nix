@@ -33,6 +33,7 @@ in
       system = "x86_64-linux";
 
       extraModules = [
+        inputs.vpn-confinement.nixosModules.default
         inputs.emby-flake.nixosModules.default
       ];
     };

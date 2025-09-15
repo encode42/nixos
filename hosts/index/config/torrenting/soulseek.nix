@@ -1,6 +1,10 @@
 { flakeRoot, ... }:
 
 let
+  interface = "soulsk";
+
+  port = 50220;
+
   soulseekModule = import (flakeRoot + /packages/server/torrenting/soulseek.nix) {
     hosts = [
       {
@@ -14,6 +18,18 @@ in
   imports = [
     soulseekModule
   ];
+
+  vpnNamespaces.${interface} = {
+    enable = true;
+
+    wireguardConfigFile = "/mnt/apps/soulseek/wg0.conf";
+
+    openVPNPorts = [
+      {
+        inherit port;
+      }
+    ];
+  };
 
   services.slskd = {
     settings = {
@@ -29,8 +45,18 @@ in
           "[Music]/mnt/data/media/Music" # TODO
         ];
       };
+
+      soulseek = {
+        listen_port = port;
+      };
     };
 
     environmentFile = "/mnt/apps/soulseek/soulseek.env";
+  };
+
+  systemd.services.slskd.vpnConfinement = {
+    enable = true;
+
+    vpnNamespace = interface;
   };
 }

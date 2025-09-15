@@ -1,14 +1,22 @@
 {
+  dhtPort ? 6881,
+  listenPorts ? {
+    start = 6881;
+    end = 6889;
+  },
+}:
+
+{
   services.rtorrent = {
     enable = true;
 
     configText = ''
       dht.mode.set = auto
-      dht.port.set = "6881"
+      dht.port.set = "${toString dhtPort}"
 
       protocol.pex.set = yes
 
-      network.port_range.set = "6881-6889"
+      network.port_range.set = "${toString listenPorts.start}-${toString listenPorts.end}"
 
       trackers.use_udp.set = yes
 

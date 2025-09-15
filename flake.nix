@@ -58,6 +58,8 @@
     };
 
     # Server packages
+    vpn-confinement.url = "github:Maroka-chan/VPN-Confinement";
+
     emby-flake = {
       url = "github:tofu-salad/emby-server-flake";
     };
