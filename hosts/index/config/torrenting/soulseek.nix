@@ -1,4 +1,4 @@
-{ flakeRoot, ... }:
+{ flakeRoot, config, ... }:
 
 let
   interface = "soulsk";
@@ -12,6 +12,8 @@ let
         ssl = "internal";
       }
     ];
+
+    interface = config.vpnNamespaces.${interface}.namespaceAddress;
   };
 in
 {
@@ -22,13 +24,17 @@ in
   vpnNamespaces.${interface} = {
     enable = true;
 
-    wireguardConfigFile = "/mnt/apps/soulseek/wg0.conf";
+    portMappings = [
+      { from = config.services.slskd.settings.web.port; to = config.services.slskd.settings.web.port; }
+    ];
 
     openVPNPorts = [
       {
         inherit port;
       }
     ];
+
+    wireguardConfigFile = "/mnt/apps/soulseek/wg0.conf";
   };
 
   services.slskd = {
@@ -42,7 +48,7 @@ in
 
       shares = {
         directories = [
-          "[Music]/mnt/data/media/Music" # TODO
+          "[Music]/mnt/data/media/Music"
         ];
       };
 

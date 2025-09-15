@@ -1,5 +1,6 @@
 {
   hosts ? [ ],
+  interface ? "",
 }:
 
 { config, flakeLib, ... }:
@@ -93,7 +94,7 @@
   };
 
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
-    reverse_proxy :${toString config.services.slskd.settings.web.port} {
+    reverse_proxy ${interface}:${toString config.services.slskd.settings.web.port} {
       header_up Upgrade "websocket"
       header_up Connection "Upgrade"
     }

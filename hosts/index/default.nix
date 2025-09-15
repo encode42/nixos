@@ -35,7 +35,7 @@
     ./config/language/omnipoly.nix
 
     #./config/torrenting/rtorrent.nix
-    #./config/torrenting/soulseek.nix
+    ./config/torrenting/soulseek.nix
 
     ./config/web/caddy.nix
     ./config/web/forgejo.nix
