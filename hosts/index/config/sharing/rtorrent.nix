@@ -18,7 +18,7 @@ let
     protocol = "both";
   }) (lib.range listenStartPort listenEndPort);
 
-  rtorrentModule = import (flakeRoot + /packages/server/torrenting/rtorrent.nix) {
+  rtorrentModule = import (flakeRoot + /packages/server/sharing/rtorrent.nix) {
     inherit dhtPort;
 
     listenPorts = {
@@ -27,7 +27,7 @@ let
     };
   };
 
-  floodModule = import (flakeRoot + /packages/server/torrenting/flood.nix) {
+  floodModule = import (flakeRoot + /packages/server/sharing/flood.nix) {
     hosts = [
       {
         name = "rtorrent.lan";

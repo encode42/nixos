@@ -5,7 +5,7 @@ let
 
   port = 50220;
 
-  soulseekModule = import (flakeRoot + /packages/server/torrenting/soulseek.nix) {
+  soulseekModule = import (flakeRoot + /packages/server/sharing/soulseek.nix) {
     hosts = [
       {
         name = "soulseek.lan";
