@@ -1,7 +1,7 @@
 { flakeRoot, config, ... }:
 
 let
-  interface = "soulsk";
+  interface = "sh0";
 
   port = 50220;
 
@@ -24,12 +24,16 @@ in
   vpnNamespaces.${interface} = {
     enable = true;
 
+    namespaceAddress = "192.168.15.2";
+
     portMappings = [
       {
         from = config.services.slskd.settings.web.port;
         to = config.services.slskd.settings.web.port;
       }
     ];
+
+    accessibleFrom = [ "127.0.0.1" ];
 
     openVPNPorts = [
       {
@@ -68,4 +72,6 @@ in
 
     vpnNamespace = interface;
   };
+
+  users.users.${config.services.slskd.user}.extraGroups = [ "media" ];
 }

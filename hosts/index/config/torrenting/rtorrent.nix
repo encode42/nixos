@@ -1,7 +1,12 @@
-{ flakeRoot, lib, ... }:
+{
+  flakeRoot,
+  config,
+  lib,
+  ...
+}:
 
 let
-  interface = "rtornt";
+  interface = "sh1";
 
   dhtPort = 6771;
   listenStartPort = 33101;
@@ -42,6 +47,8 @@ in
 
     wireguardConfigFile = "/mnt/apps/rtorrent/wg0.conf";
 
+    namespaceAddress = "192.168.15.3";
+
     openVPNPorts = [
       {
         port = dhtPort;
@@ -55,5 +62,11 @@ in
   services.rtorrent = {
     dataDir = "/mnt/apps/rtorrent";
     downloadDir = "/mnt/data/rtorrent/downloads";
+  };
+
+  systemd.services.rtorrent.vpnConfinement = {
+    enable = true;
+
+    vpnNamespace = interface;
   };
 }
