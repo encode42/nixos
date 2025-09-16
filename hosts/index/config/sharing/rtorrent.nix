@@ -9,21 +9,21 @@ let
   interface = "sh1";
 
   dhtPort = 6771;
-  listenStartPort = 33101;
-  listenEndPort = 33103;
+  listenFromPort = 33101;
+  listenToPort = 33103;
 
   vpnListenPorts = map (port: {
     inherit port;
 
     protocol = "both";
-  }) (lib.range listenStartPort listenEndPort);
+  }) (lib.range listenFromPort listenToPort);
 
   rtorrentModule = import (flakeRoot + /packages/server/sharing/rtorrent.nix) {
     inherit dhtPort;
 
-    listenPorts = {
-      start = listenStartPort;
-      end = listenEndPort;
+    listenPortRange = {
+      from = listenFromPort;
+      to = listenToPort;
     };
   };
 

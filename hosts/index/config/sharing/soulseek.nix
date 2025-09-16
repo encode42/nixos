@@ -73,5 +73,6 @@ in
     vpnNamespace = interface;
   };
 
+  # TODO: I don't think I need this
   users.users.${config.services.slskd.user}.extraGroups = [ "media" ];
 }

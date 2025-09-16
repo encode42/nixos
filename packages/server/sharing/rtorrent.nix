@@ -1,9 +1,10 @@
 {
   dhtPort ? 6881,
-  listenPorts ? {
-    start = 6881;
-    end = 6889;
+  listenPortRange ? {
+    from = 6881;
+    to = 6889;
   },
+  openFirewall ? false,
 }:
 
 {
@@ -20,14 +21,11 @@
     package = pkgs-unstable.rtorrent;
 
     configText = ''
-      dht.mode.set = off
+      dht.mode.set = off # Disabled due to a bug in rtorrent 0.16
       dht.port.set = ${toString dhtPort}
-
       protocol.pex.set = yes
-
       trackers.use_udp.set = yes
-
-      network.port_range.set = ${toString listenPorts.start}-${toString listenPorts.end}
+      network.port_range.set = ${toString listenPortRange.from}-${toString listenPortRange.to}
 
       throttle.max_downloads.set = 100
       throttle.max_uploads.global.set = 300
@@ -38,11 +36,13 @@
       throttle.min_peers.seed.set = 1
       throttle.max_peers.seed.set = 100
 
+      # Assumes a more powerful machine
       pieces.memory.max.set = 4000M
       pieces.preload.type.set = 2
       pieces.preload.min_rate.set = 50000
 
-      #ratio.enable= # TODO: seeding ratio for sonarr/etc.
+      # TODO: seeding ratio for sonarr/etc.
+      #ratio.enable=
       #ratio.min.set=100
       #ratio.max.set=300
       #system.method.set = group.seeding.ratio.command, d.close=
@@ -57,9 +57,16 @@
     '';
   };
 
+  # Required override for linux-hardened kernel
   systemd.services.rtorrent.serviceConfig = {
     SystemCallFilter = lib.mkForce "@system-service";
   };
 
+  networking.firewall = lib.mkIf openFirewall {
+    allowedTCPPortRanges = [ listenPortRange ];
+    allowedUDPPortRanges = [ listenPortRange ];
+  };
+
+  # Add Flood to the rtorrent group for file management
   systemd.services.flood.serviceConfig.SupplementaryGroups = [ config.services.rtorrent.group ];
 }

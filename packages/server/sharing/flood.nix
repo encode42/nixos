@@ -27,6 +27,7 @@ in
     ];
   };
 
+  # Override service to support listening on sockets
   systemd.services.flood.serviceConfig = {
     ExecStart = lib.mkForce (
       utils.escapeSystemdExecArgs (

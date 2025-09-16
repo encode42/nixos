@@ -12,6 +12,7 @@
     domain = null;
 
     settings = {
+      # Upload limits assume a fast connection
       global = {
         upload = {
           slots = 75;
@@ -69,12 +70,14 @@
       };
 
       shares = {
+        # These files can contain sensitive information
         filters = [
           ".md$"
           ".log$"
           ".pydio$"
         ];
 
+        # Assumes a more powerful machine
         cache = {
           storage_mode = "memory";
           workers = 8;
@@ -87,8 +90,23 @@
         "^(\.?pdf|\.?docx|\.?xlsx)$"
       ];
 
+      # Numbers are measured in hours
       retention = {
-        search = 10080;
+        search = 1; # Users go offline often, invalidating search
+
+        transfers = {
+          upload = {
+            succeeded = 10080;
+            errored = 1440;
+            cancelled = 1440;
+          };
+
+          download = {
+            succeeded = 1440;
+            errored = 10080;
+            cancelled = 10080;
+          };
+        };
       };
     };
   };
