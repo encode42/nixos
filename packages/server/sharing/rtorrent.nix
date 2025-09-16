@@ -21,7 +21,8 @@
     package = pkgs-unstable.rtorrent;
 
     configText = ''
-      dht.mode.set = off # Disabled due to a bug in rtorrent 0.16
+      # Disabled due to a bug in rtorrent 0.16
+      dht.mode.set = off
       dht.port.set = ${toString dhtPort}
       protocol.pex.set = yes
       trackers.use_udp.set = yes

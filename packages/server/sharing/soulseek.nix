@@ -92,7 +92,7 @@
 
       # Numbers are measured in hours
       retention = {
-        search = 1; # Users go offline often, invalidating search
+        search = 5; # Users go offline often, invalidating search
 
         transfers = {
           upload = {
