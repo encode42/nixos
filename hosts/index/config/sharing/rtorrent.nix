@@ -48,6 +48,7 @@ in
     wireguardConfigFile = "/mnt/apps/rtorrent/wg0.conf";
 
     namespaceAddress = "192.168.15.3";
+    bridgeAddress = "192.168.15.7";
 
     openVPNPorts = [
       {

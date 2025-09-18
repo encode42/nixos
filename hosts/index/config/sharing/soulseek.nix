@@ -25,6 +25,7 @@ in
     enable = true;
 
     namespaceAddress = "192.168.15.2";
+    bridgeAddress = "192.168.15.6";
 
     portMappings = [
       {
@@ -32,8 +33,6 @@ in
         to = config.services.slskd.settings.web.port;
       }
     ];
-
-    accessibleFrom = [ "127.0.0.1" ];
 
     openVPNPorts = [
       {
@@ -60,6 +59,7 @@ in
       };
 
       soulseek = {
+        listen_ip_address = config.vpnNamespaces.${interface}.namespaceAddress;
         listen_port = port;
       };
     };
@@ -73,6 +73,5 @@ in
     vpnNamespace = interface;
   };
 
-  # TODO: I don't think I need this
   users.users.${config.services.slskd.user}.extraGroups = [ "media" ];
 }
