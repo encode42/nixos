@@ -23,6 +23,8 @@
     (flakeRoot + /homes/encode42/desktop/firefox.nix)
 
     (flakeRoot + /homes/shared/desktop/prismlauncher.nix)
+
+    (flakeRoot + /homes/encode42/desktop/work.nix)
   ];
 
   home.packages = with pkgs; [
