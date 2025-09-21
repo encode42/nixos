@@ -1,9 +1,8 @@
 {
   hosts ? [ ],
-  interface ? "",
 }:
 
-{ config, flakeLib, ... }:
+{ config, pkgs-personal, flakeLib, ... }:
 
 {
   services.slskd = {
@@ -108,11 +107,25 @@
           };
         };
       };
+
+      web = {
+        socket = "/run/slskd/slskd.sock";
+      };
     };
+
+    package = pkgs-personal.slskd;
   };
 
+  systemd.services.slskd.serviceConfig = {
+    RuntimeDirectory = "slskd";
+    RuntimeDirectoryMode = "0750";
+    UMask = "0007";
+  };
+
+  users.users.caddy.extraGroups = [ "slskd" ];
+
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
-    reverse_proxy ${interface}:${toString config.services.slskd.settings.web.port} {
+    reverse_proxy unix/${toString config.services.slskd.settings.web.socket} {
       header_up Upgrade "websocket"
       header_up Connection "Upgrade"
     }

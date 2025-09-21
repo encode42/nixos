@@ -12,8 +12,6 @@ let
         ssl = "internal";
       }
     ];
-
-    interface = config.vpnNamespaces.${interface}.namespaceAddress;
   };
 in
 {
@@ -26,13 +24,6 @@ in
 
     namespaceAddress = "192.168.15.2";
     bridgeAddress = "192.168.15.6";
-
-    portMappings = [
-      {
-        from = config.services.slskd.settings.web.port;
-        to = config.services.slskd.settings.web.port;
-      }
-    ];
 
     openVPNPorts = [
       {
