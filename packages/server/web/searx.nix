@@ -146,6 +146,7 @@
         "wikipedia" = {
           disabled = false;
 
+          timeout = 1.0;
           weight = 2;
         };
         "wolframalpha".disabled = true;
