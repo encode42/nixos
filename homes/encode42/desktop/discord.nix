@@ -9,12 +9,16 @@
 
       settings = {
         customTitleBar = true;
-        splashTheming = true;
+        enableSplashScreen = false;
+
+        hardwareVideoAcceleration = true;
 
         minimizeToTray = false;
 
         checkUpdates = false;
       };
+
+      useSystemVencord = true;
     };
 
     config = {
