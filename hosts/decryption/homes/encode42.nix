@@ -18,13 +18,10 @@
     (flakeRoot + /homes/encode42/desktop/environments/gnome.nix)
 
     (flakeRoot + /homes/encode42/desktop/jetbrains/intellij.nix)
-
     (flakeRoot + /homes/encode42/desktop/discord.nix)
     (flakeRoot + /homes/encode42/desktop/firefox.nix)
 
     (flakeRoot + /homes/shared/desktop/prismlauncher.nix)
-
-    (flakeRoot + /homes/encode42/desktop/work.nix)
   ];
 
   home.packages = with pkgs; [

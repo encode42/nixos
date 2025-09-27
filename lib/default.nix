@@ -6,4 +6,5 @@
   };
 
   mkProxies = import ./mkProxies.nix;
+  mkUserIcon = import ./mkUserIcon.nix;
 }

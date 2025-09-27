@@ -3,8 +3,8 @@
 {
   imports = [
     (flakeLib.mkUserIcon {
-      userName = "encode42";
-      userIcon = ../42.svg;
+      userName = "career";
+      userIcon = ../modrinth.png;
     })
   ];
 }

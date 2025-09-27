@@ -39,6 +39,8 @@
           fastforwardteam
           indie-wiki-buddy
         ];
+
+        force = true;
       };
 
       search = {
