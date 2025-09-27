@@ -33,7 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Window/desktop managers
+    # Desktop packages
     niri = {
       url = "github:sodiboo/niri-flake";
     };

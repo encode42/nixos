@@ -41,6 +41,8 @@ inputs.nixpkgs.lib.nixosSystem {
     ../hosts/${hostName}
 
     {
+      nixpkgs.pkgs = pkgs;
+
       networking.hostName = hostName;
     }
   ]
@@ -52,7 +54,6 @@ inputs.nixpkgs.lib.nixosSystem {
     inherit
       flakeRoot
       flakeLib
-      pkgs
       pkgs-unstable
       pkgs-personal
       isLaptop
