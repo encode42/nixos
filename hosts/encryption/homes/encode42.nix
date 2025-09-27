@@ -5,6 +5,35 @@
   ...
 }:
 
+let
+  mkConvertFunction = outputName: ''
+    set downloadUrl $argv[1]
+    set fileName download.tmp
+
+    xh --download $downloadUrl --output $fileName
+
+    set isOpaque (magick identify -format '%[opaque]' $fileName)
+    set aspectRatio (magick $fileName -format "%[fx:w/h]" info:)
+
+    set -l arguments;
+
+    if test $isOpaque = "False"
+      echo "Will replace transparency with solid color!"
+
+      set -a arguments "-transparent white"
+    end
+
+    if test $aspectRatio != "1"
+      echo "Will adjust the image's cropping!"
+
+      set -a arguments "-gravity center -crop 1:1"
+    end
+
+    magick $fileName $arguments -quality 100% -verbose ${outputName}
+
+    rm -f $fileName
+  '';
+in
 {
   imports = [
     (flakeRoot + /homes/encode42/common)
@@ -25,6 +54,11 @@
 
     (flakeRoot + /homes/shared/desktop/prismlauncher.nix)
   ];
+
+  programs.fish.functions = {
+    download_cover = mkConvertFunction "cover.jpg";
+    download_artist = mkConvertFunction "artist.jpg";
+  };
 
   home.packages = with pkgs; [
     ffmpeg
