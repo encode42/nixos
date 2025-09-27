@@ -12,9 +12,6 @@
     (flakeRoot + /homes/encode42/common/github.nix)
     (flakeRoot + /homes/encode42/common/direnv.nix)
 
-    (flakeRoot + /homes/encode42/desktop/cursor.nix)
-    (flakeRoot + /homes/encode42/desktop/fonts.nix)
-
     (flakeRoot + /homes/encode42/desktop/environments/gnome.nix)
 
     (flakeRoot + /homes/encode42/desktop/jetbrains/intellij.nix)
