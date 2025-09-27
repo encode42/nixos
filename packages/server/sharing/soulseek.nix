@@ -2,7 +2,12 @@
   hosts ? [ ],
 }:
 
-{ config, pkgs-personal, flakeLib, ... }:
+{
+  config,
+  pkgs-personal,
+  flakeLib,
+  ...
+}:
 
 {
   services.slskd = {
