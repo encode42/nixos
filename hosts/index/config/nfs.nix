@@ -53,9 +53,10 @@
     ];
   };
 
+  # TODO: Automatically grab user and group IDs?
   services.nfs.server.exports = ''
     /export *(fsid=0,ro,insecure)
-    /export/media *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=974,anongid=442)
+    /export/media *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=991,anongid=442)
     /export/torrents *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=987,anongid=972)
     /export/soulseek *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=985,anongid=973)
   '';
