@@ -47,7 +47,11 @@ in
 
       ffmpeg = {
         acceptedContainers = [ "webm" ];
-        acceptedVideoCodecs = [ "hevc" "vp9" "av1" ];
+        acceptedVideoCodecs = [
+          "hevc"
+          "vp9"
+          "av1"
+        ];
         acceptedAudioCodecs = [ "libopus" ];
 
         targetVideoCodec = "hevc";
@@ -82,7 +86,10 @@ in
     };
   };
 
-  users.users.immich.extraGroups = [ "video" "render" ];
+  users.users.immich.extraGroups = [
+    "video"
+    "render"
+  ];
 
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy :${toString config.services.immich.port}
