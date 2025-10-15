@@ -1,4 +1,5 @@
 {
+  pkgs-hexadecimalDinosaur,
   nixcord,
   firefox-addons,
   ...
@@ -15,7 +16,7 @@
     ];
 
     extraSpecialArgs = {
-      inherit firefox-addons;
+      inherit pkgs-hexadecimalDinosaur firefox-addons;
     };
   };
 }

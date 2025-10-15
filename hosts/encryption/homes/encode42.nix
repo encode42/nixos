@@ -2,6 +2,8 @@
   flakeRoot,
   pkgs,
   pkgs-unstable,
+  pkgs-personal,
+  pkgs-hexadecimalDinosaur,
   ...
 }:
 
@@ -72,5 +74,8 @@ in
     openrct2
     r2modman
     pkgs-unstable.olympus
+    pkgs-personal.iso2god-rs
+
+    pkgs-hexadecimalDinosaur.jetbrains-fleet
   ];
 }

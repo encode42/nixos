@@ -26,14 +26,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Package alternatives
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Desktop packages
+    # Desktop modules
     niri = {
       url = "github:sodiboo/niri-flake";
     };
@@ -57,19 +56,27 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # Server packages
+    # Server modules
     vpn-confinement.url = "github:Maroka-chan/VPN-Confinement";
 
     emby-flake = {
       url = "github:tofu-salad/emby-server-flake";
     };
 
-    # My packages
+    # Community-maintained package repositories
     encode42-packages = {
       url = "github:encode42/nixos-packages";
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hexadecimalDinosaur-packages = {
+      url = "github:hexadecimalDinosaur/nur";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixpkgs-winboat.url = "github:Rexcrazy804/nixpkgs/winboat-init";
   };
 
   outputs = args: import ./outputs.nix args;

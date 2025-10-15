@@ -25,6 +25,14 @@ let
 
   pkgs-personal = inputs.encode42-packages.packages.${system};
 
+  pkgs-hexadecimalDinosaur = import inputs.hexadecimalDinosaur-packages {
+    inherit pkgs;
+  };
+
+  pkgs-winboat = import inputs.nixpkgs-winboat {
+    inherit system;
+  };
+
   flakeLib = import ./default.nix {
     inherit pkgs;
 
@@ -56,6 +64,8 @@ inputs.nixpkgs.lib.nixosSystem {
       flakeLib
       pkgs-unstable
       pkgs-personal
+      pkgs-hexadecimalDinosaur
+      pkgs-winboat
       isLaptop
       hostName
       ;

@@ -17,6 +17,8 @@
 
     (flakeRoot + /packages/desktop/obs.nix)
     (flakeRoot + /packages/desktop/steam.nix)
+
+    (flakeRoot + /packages/desktop/winboat.nix)
   ];
 
   services.displayManager.autoLogin = {

@@ -4,6 +4,7 @@
   home-manager,
   pkgs,
   pkgs-unstable,
+  pkgs-personal,
   isLaptop,
   ...
 }:
@@ -24,6 +25,7 @@
         flakeLib
         pkgs
         pkgs-unstable
+        pkgs-personal
         isLaptop
         ;
     };
