@@ -8,6 +8,8 @@
 
     inherit email;
 
+    enableReload = false;
+
     globalConfig = ''
       servers {
         trusted_proxies cloudflare {
