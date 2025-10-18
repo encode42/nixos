@@ -4,6 +4,7 @@
 
 {
   config,
+  pkgs-unstable,
   lib,
   flakeLib,
   ...
@@ -12,6 +13,8 @@
 {
   services.searx = {
     enable = true;
+
+    package = pkgs-unstable.searxng;
 
     redisCreateLocally = true;
 
