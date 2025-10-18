@@ -8,12 +8,15 @@ let
   compressionModules = import (caddyModulesPath + /compression.nix);
   sslModules = import (caddyModulesPath + /ssl.nix);
 
-  insertLocalSubdomain = host:
+  insertLocalSubdomain =
+    host:
     let
       domainLevels = lib.splitString "." host;
       totalLevels = (lib.length domainLevels - 2);
     in
-      lib.concatStringsSep "." (lib.take totalLevels domainLevels ++ [ "local" ] ++ lib.drop totalLevels domainLevels);
+    lib.concatStringsSep "." (
+      lib.take totalLevels domainLevels ++ [ "local" ] ++ lib.drop totalLevels domainLevels
+    );
 in
 builtins.listToAttrs (
   map (host: {

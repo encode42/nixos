@@ -1,4 +1,8 @@
-{ nix-jetbrains-plugins, pkgs, lib }:
+{
+  nix-jetbrains-plugins,
+  pkgs,
+  lib,
+}:
 
 {
   customJetbrainsPackage = import ./customJetbrainsPackage.nix {
