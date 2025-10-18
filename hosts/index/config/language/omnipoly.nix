@@ -10,6 +10,8 @@ let
       {
         name = "language.encrypted.group";
         ssl = "cloudflare";
+
+        useLocal = true;
       }
     ];
   };

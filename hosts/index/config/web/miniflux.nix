@@ -10,6 +10,8 @@ let
       {
         name = "feed.encrypted.group";
         ssl = "cloudflare";
+
+        useLocal = true;
       }
     ];
   };

@@ -33,13 +33,15 @@ let
     inherit system;
   };
 
+  lib = inputs.nixpkgs.lib;
+
   flakeLib = import ./default.nix {
-    inherit pkgs;
+    inherit pkgs lib;
 
     nix-jetbrains-plugins = inputs.nix-jetbrains-plugins;
   };
 in
-inputs.nixpkgs.lib.nixosSystem {
+lib.nixosSystem {
   inherit system;
 
   modules = [
@@ -55,7 +57,7 @@ inputs.nixpkgs.lib.nixosSystem {
     }
   ]
   ++ builtins.attrValues inputs.encode42-packages.nixosModules
-  ++ inputs.nixpkgs.lib.optional isLaptop ../hardware/laptop.nix
+  ++ lib.optional isLaptop ../hardware/laptop.nix
   ++ extraModules;
 
   specialArgs = {

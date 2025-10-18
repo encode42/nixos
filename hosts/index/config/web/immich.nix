@@ -12,6 +12,8 @@ let
       {
         name = host;
         ssl = "cloudflare";
+
+        useLocal = true;
       }
     ];
   };

@@ -10,6 +10,8 @@ let
       {
         name = "drive.encrypted.group";
         ssl = "cloudflare";
+
+        useLocal = true;
       }
     ];
   };

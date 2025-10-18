@@ -6,10 +6,6 @@ let
   searxModule = import (flakeRoot + /packages/server/web/searx.nix) {
     hosts = [
       {
-        name = "searx.lan";
-        ssl = "internal";
-      }
-      {
         name = host;
         ssl = "cloudflare";
       }
