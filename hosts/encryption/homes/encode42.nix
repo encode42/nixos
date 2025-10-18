@@ -22,13 +22,13 @@ let
     if test $isOpaque = "False"
       echo "Will replace transparency with solid color!"
 
-      set -a arguments "-transparent white"
+      set -a arguments -background white -alpha remove -alpha off
     end
 
     if test $aspectRatio != "1"
       echo "Will adjust the image's cropping!"
 
-      set -a arguments "-gravity center -crop 1:1"
+      set -a arguments -gravity center -crop 1:1
     end
 
     magick $fileName $arguments -quality 100% -verbose ${outputName}
