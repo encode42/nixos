@@ -20,6 +20,8 @@ in
     ./common
 
     ./desktop/environments/gnome.nix
+
+    ./desktop/winboat.nix
   ];
 
   home-manager.users.career = {
