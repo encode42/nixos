@@ -1,14 +1,34 @@
-{ domain, email }:
-
-{ config, ... }:
+{
+  domain,
+  email,
+  ssl,
+}:
 
 let
   subdomain = "mx.${domain}";
+
+  tlsModule = import ./mta-sts.nix {
+    inherit domain ssl;
+  };
+
+  autoconfigModule = import ./autoconfig.nix {
+    inherit domain;
+
+    hosts = [
+      {
+        name = "autoconfig.${domain}";
+        ssl = "cloudflare";
+      }
+    ];
+  };
 in
 {
   imports = [
     ../databases/postgresql.nix
     ./rspamd.nix
+
+    tlsModule
+    autoconfigModule
   ];
 
   services.postgresql = {

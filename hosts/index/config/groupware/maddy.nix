@@ -7,23 +7,13 @@ let
     inherit domain;
 
     email = "postmaster@${domain}";
-  };
 
-  autoconfigModule = import (flakeRoot + /packages/server/groupware/autoconfig.nix) {
-    inherit domain;
-
-    hosts = [
-      {
-        name = "autoconfig.${domain}";
-        ssl = "cloudflare";
-      }
-    ];
+    ssl = "cloudflare";
   };
 in
 {
   imports = [
     maddyModule
-    autoconfigModule
   ];
 
   services.maddy = {
