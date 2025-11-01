@@ -1,5 +1,4 @@
 {
-  lib,
   nixos-hardware,
   isLaptop,
   ...

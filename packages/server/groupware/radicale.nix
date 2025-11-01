@@ -2,6 +2,8 @@
   hosts ? [ ],
 }:
 
+{ flakeLib, ... }:
+
 {
   services.radicale = {
     enable = true;

@@ -1,6 +1,5 @@
 {
   flakeRoot,
-  pkgs,
   ...
 }:
 

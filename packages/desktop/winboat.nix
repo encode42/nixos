@@ -2,8 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    pkgs.freerdp3
-    pkgs.docker-compose
+    freerdp3
+    docker-compose
     pkgs-winboat.winboat
   ];
 

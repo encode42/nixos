@@ -1,4 +1,4 @@
-{ config, flakeRoot, ... }:
+{ flakeRoot, ... }:
 
 let
   omnipolyModule = import (flakeRoot + /packages/server/language/omnipoly.nix) {

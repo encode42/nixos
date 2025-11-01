@@ -31,7 +31,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     home-manager
   ];
 }

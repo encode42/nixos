@@ -1,7 +1,5 @@
 {
   lib,
-  firefox-addons,
-  pkgs,
   ...
 }:
 

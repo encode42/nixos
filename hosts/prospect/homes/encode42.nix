@@ -1,7 +1,5 @@
 {
   flakeRoot,
-  pkgs,
-  pkgs-unstable,
   ...
 }:
 
