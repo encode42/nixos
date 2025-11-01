@@ -17,7 +17,8 @@ let
     hosts = [
       {
         name = "autoconfig.${domain}";
-        ssl = "cloudflare";
+
+        inherit ssl;
       }
     ];
   };
