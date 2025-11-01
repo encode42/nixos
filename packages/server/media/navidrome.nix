@@ -54,6 +54,7 @@ in
       ArtistArtPriority = "artist.*";
       CoverArtPriority = "cover.*, embedded";
       EnableMediaFileCoverArt = true;
+      CoverJpegQuality = 100;
 
       AutoImportPlaylists = false;
 
