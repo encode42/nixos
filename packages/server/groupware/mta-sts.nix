@@ -26,7 +26,7 @@ in
               "version: STSv1" \
               "mode: enforce" \
               "max_age: 604800" \
-              "mx: ${tlsDomain}"
+              "mx: ${tlsDomain}" \
               > "$out/.well-known/mta-sts.txt"
           ''
         }
