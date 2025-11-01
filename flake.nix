@@ -70,12 +70,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hexadecimalDinosaur-packages = {
-      url = "github:hexadecimalDinosaur/nur";
-
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixpkgs-winboat.url = "github:Rexcrazy804/nixpkgs/winboat-init";
   };
 

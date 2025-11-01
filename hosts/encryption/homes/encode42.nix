@@ -3,7 +3,6 @@
   pkgs,
   pkgs-unstable,
   pkgs-personal,
-  pkgs-hexadecimalDinosaur,
   ...
 }:
 
@@ -62,6 +61,37 @@ in
     download_artist = mkConvertFunction "artist.jpg";
   };
 
+  programs.zed-editor = {
+    enable = true;
+
+    extensions = [
+      "nix"
+      "toml"
+      "rust"
+      "catppuccin"
+    ];
+
+    userSettings = {
+      theme = {
+        mode = "system";
+        light = "Catpuccin Frappe";
+        dark = "Catppuccin Macchiato";
+      };
+
+      nix = {
+        binary = {
+          path_lookup = true;
+        };
+      };
+    };
+
+    extraPackages = with pkgs; [
+      nil
+      nixd
+      rust-analyzer
+    ];
+  };
+
   home.packages = with pkgs; [
     ffmpeg
     rsgain
@@ -75,7 +105,5 @@ in
     r2modman
     pkgs-unstable.olympus
     pkgs-personal.iso2god-rs
-
-    pkgs-hexadecimalDinosaur.jetbrains-fleet
   ];
 }
