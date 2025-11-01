@@ -8,7 +8,7 @@ let
         ssl = "internal";
       }
       {
-        name = "listen.encrypted.group";
+        name = "hear.encrypted.group";
         ssl = "cloudflare";
 
         useLocal = true;

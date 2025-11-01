@@ -8,7 +8,7 @@ let
         ssl = "internal";
       }
       {
-        name = "language.encrypted.group";
+        name = "text.encrypted.group";
         ssl = "cloudflare";
 
         useLocal = true;

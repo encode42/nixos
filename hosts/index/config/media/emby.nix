@@ -12,6 +12,8 @@
         {
           name = "watch.encrypted.group";
           ssl = "cloudflare";
+
+          useLocal = true;
         }
       ];
     }

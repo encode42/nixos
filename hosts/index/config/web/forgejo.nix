@@ -1,7 +1,7 @@
 { flakeRoot, ... }:
 
 let
-  host = "git.encrypted.group";
+  host = "forge.encrypted.group";
 
   forgejoModule = import (flakeRoot + /packages/server/web/forgejo.nix) {
     hosts = [
