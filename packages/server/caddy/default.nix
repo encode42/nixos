@@ -26,7 +26,7 @@
         "github.com/BadAimWeeb/caddy-uwsgi-transport@v0.0.0-20240317192154-74a1008b9763"
       ];
 
-      hash = "sha256-LbqG168rWLMtNY0dQcedZiKuXkR6cLLNRf3S/F9dV7Y=";
+      hash = "sha256-rOhVN9afti73MBrpleVH+Qmh1hj6N8flOySIq9nUxGU=";
     };
   };
 
