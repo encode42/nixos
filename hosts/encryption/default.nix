@@ -20,6 +20,7 @@
     (flakeRoot + /modules/common/virtualization.nix)
 
     (flakeRoot + /modules/desktop/environments/gnome.nix)
+    (flakeRoot + /modules/desktop/system/noise-cancellation.nix)
 
     ./users
   ];
