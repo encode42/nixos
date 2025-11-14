@@ -29,7 +29,7 @@
     ./config/groupware/cells.nix
     ./config/groupware/maddy.nix
 
-    #./config/media/audiobookshelf.nix
+    ./config/media/audiobookshelf.nix
     #./config/media/emby.nix
     ./config/media/navidrome.nix
 

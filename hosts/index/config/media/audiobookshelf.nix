@@ -1,4 +1,4 @@
-{ flakeRoot, ... }:
+{ flakeRoot, config, lib, ... }:
 
 let
   audiobookshelfModule = import (flakeRoot + /packages/server/media/audiobookshelf.nix) {
@@ -24,4 +24,6 @@ in
   services.audiobookshelf = {
     dataDir = "/mnt/apps/audiobookshelf";
   };
+
+  systemd.services.audiobookshelf.serviceConfig.WorkingDirectory = lib.mkForce config.services.audiobookshelf.dataDir;
 }
