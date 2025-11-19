@@ -32,11 +32,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Desktop modules
-    niri = {
-      url = "github:sodiboo/niri-flake";
-    };
-
     # Declarative addon systems
     nix-jetbrains-plugins = {
       url = "github:theCapypara/nix-jetbrains-plugins";
