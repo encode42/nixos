@@ -3,14 +3,14 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0T409404F";
+        device = "/dev/disk/by-id/nvme-WD_BLACK_SN7100_1TB_251356803910";
 
         content = {
           type = "gpt";
 
           partitions = {
             ESP = {
-              end = "500M";
+              size = "512M";
               type = "EF00";
 
               content = {
@@ -20,17 +20,59 @@
                 mountpoint = "/boot";
               };
             };
-            root = {
-              name = "root";
-              end = "-0";
+
+            luks = {
+              size = "100%";
 
               content = {
-                type = "filesystem";
+                name = "cryptroot";
+                type = "luks";
 
-                format = "xfs";
-                mountpoint = "/";
+                extraOpenArgs = [
+                  "--allow-discards"
+                  "--perf-no_read_workqueue"
+                  "--perf-no_write_workqueue"
+                ];
+
+                settings = {
+                  crypttabExtraOpts = [
+                    "tpm-device=auto"
+                    "token-timeout=10"
+                  ];
+                };
+
+                content = {
+                  type = "lvm_pv";
+                  vg = "vg0";
+                };
               };
             };
+          };
+        };
+      };
+    };
+
+    lvm_vg.vg0 = {
+      type = "lvm_vg";
+
+      lvs = {
+        root = {
+          name = "root";
+          size = "100%FREE";
+
+          content = {
+            type = "filesystem";
+
+            format = "xfs";
+            mountpoint = "/";
+          };
+        };
+
+        swap = {
+          size = "32G";
+
+          content = {
+            type = "swap";
           };
         };
       };
