@@ -17,6 +17,8 @@
     (flakeRoot + /packages/desktop/steam.nix)
   ];
 
+  security.pam.services.login.unixAuth = false;
+
   home-manager.users.encode42 = {
     imports = [
       ../homes/encode42.nix

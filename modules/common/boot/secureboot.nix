@@ -1,3 +1,6 @@
+# note: make sure to create secureboot keys before installation.
+# https://github.com/nix-community/lanzaboote/blob/b2f781751764ff57d54f7cf1910ae1bbf268ed1c/docs/QUICK_START.md
+
 {
   lib,
   lanzaboote,
@@ -16,7 +19,7 @@
   boot.lanzaboote = {
     enable = true;
 
-    pkiBundle = "/etc/secureboot";
+    pkiBundle = "/var/lib/sbctl";
   };
 
   environment.systemPackages = with pkgs; [

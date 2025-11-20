@@ -1,4 +1,6 @@
 {
+  boot.initrd.systemd.enable = true;
+
   disko.devices = {
     disk = {
       main = {
@@ -36,7 +38,7 @@
 
                 settings = {
                   crypttabExtraOpts = [
-                    "tpm-device=auto"
+                    "tpm2-device=auto"
                     "token-timeout=10"
                   ];
                 };
@@ -69,6 +71,7 @@
         };
 
         swap = {
+          name = "swap";
           size = "32G";
 
           content = {

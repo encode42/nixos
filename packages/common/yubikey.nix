@@ -11,6 +11,10 @@
     enable = true;
   };
 
+  security.pam.services = {
+    login.u2fAuth = true;
+  };
+
   services.udev.packages = with pkgs; [
     yubikey-personalization
   ];

@@ -9,4 +9,6 @@
     editor = false;
     configurationLimit = 6;
   };
+
+  boot.loader.timeout = 0;
 }
