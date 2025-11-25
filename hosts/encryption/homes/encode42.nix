@@ -48,10 +48,9 @@ in
 
     (flakeRoot + /homes/encode42/desktop/jetbrains/rider.nix)
     (flakeRoot + /homes/encode42/desktop/jetbrains/intellij.nix)
-    (flakeRoot + /homes/encode42/desktop/jetbrains/rustrover.nix)
-    (flakeRoot + /homes/encode42/desktop/jetbrains/webstorm.nix)
     (flakeRoot + /homes/encode42/desktop/discord.nix)
     (flakeRoot + /homes/encode42/desktop/firefox.nix)
+    (flakeRoot + /homes/encode42/desktop/zed.nix)
 
     (flakeRoot + /homes/shared/desktop/prismlauncher.nix)
   ];
@@ -59,37 +58,6 @@ in
   programs.fish.functions = {
     download_cover = mkConvertFunction "cover.jpg";
     download_artist = mkConvertFunction "artist.jpg";
-  };
-
-  programs.zed-editor = {
-    enable = true;
-
-    extensions = [
-      "nix"
-      "toml"
-      "rust"
-      "catppuccin"
-    ];
-
-    userSettings = {
-      theme = {
-        mode = "system";
-        light = "Catpuccin Frappe";
-        dark = "Catppuccin Macchiato";
-      };
-
-      nix = {
-        binary = {
-          path_lookup = true;
-        };
-      };
-    };
-
-    extraPackages = with pkgs; [
-      nil
-      nixd
-      rust-analyzer
-    ];
   };
 
   home.packages = with pkgs; [

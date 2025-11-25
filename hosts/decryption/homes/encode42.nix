@@ -16,6 +16,7 @@
     (flakeRoot + /homes/encode42/desktop/jetbrains/intellij.nix)
     (flakeRoot + /homes/encode42/desktop/discord.nix)
     (flakeRoot + /homes/encode42/desktop/firefox.nix)
+    (flakeRoot + /homes/encode42/desktop/zed.nix)
 
     (flakeRoot + /homes/shared/desktop/prismlauncher.nix)
   ];
