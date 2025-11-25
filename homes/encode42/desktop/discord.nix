@@ -33,21 +33,8 @@
       ];
 
       plugins = {
-        chatInputButtonAPI.enable = false;
-        commandsAPI.enable = false;
-        memberListDecoratorsAPI.enable = false;
-        messageDecorationsAPI.enable = false;
-        messageEventsAPI.enable = false;
-        messagePopoverAPI.enable = false;
-        messageUpdaterAPI.enable = false;
-        serverListAPI.enable = false;
-
         webScreenShareFixes.enable = true;
         youtubeAdblock.enable = true;
-
-        settings = {
-          settingsLocation = "aboveActivity";
-        };
 
         fullUserInChatbox.enable = true;
         roleColorEverywhere.enable = true;
@@ -60,7 +47,7 @@
           enable = true;
 
           format = "png";
-          imgSize = 4096;
+          imgSize = "4096";
         };
       };
     };
