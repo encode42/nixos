@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../common/system/audio.nix
+    ./pipewire.nix
   ];
 
   services.pipewire.extraConfig.pipewire."99-deepfilter-mono-source" = {

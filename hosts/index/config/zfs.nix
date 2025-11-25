@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (flakeRoot + /modules/server/zfs.nix)
+    (flakeRoot + /modules/server/filesystem/zfs.nix)
   ];
 
   networking.hostId = "c864ff4e";

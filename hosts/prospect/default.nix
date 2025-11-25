@@ -12,11 +12,12 @@
     ./disks.nix
     (flakeRoot + /hardware/cpu/amd.nix)
     (flakeRoot + /hardware/gpu/amd.nix)
+    (flakeRoot + /hardware/audio/pipewire.nix)
+    (flakeRoot + /hardware/network/bluetooth.nix)
+    (flakeRoot + /hardware/peripherals/rgb.nix)
 
     (flakeRoot + /modules/common)
     (flakeRoot + /modules/common/boot/systemd-boot.nix)
-    (flakeRoot + /modules/common/system/audio.nix)
-    (flakeRoot + /modules/common/system/rgb.nix)
 
     (flakeRoot + /modules/desktop/environments/gnome.nix)
 

@@ -1,5 +1,3 @@
 {
-  imports = [
-    ../modules/common/network/wifi.nix
-  ];
+  # TODO: Power management, mostly
 }

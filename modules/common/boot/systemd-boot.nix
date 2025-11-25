@@ -3,12 +3,9 @@
     ./common.nix
   ];
 
-  boot.loader.systemd-boot = {
-    enable = true;
+  boot = {
+    kernelParams = [ "boot.shell_on_fail" ];
 
-    editor = false;
-    configurationLimit = 6;
+    loader.systemd-boot.enable = true;
   };
-
-  boot.loader.timeout = 0;
 }

@@ -1,7 +1,7 @@
 {
-  boot = {
-    kernelParams = [ "boot.shell_on_fail" ];
+  boot.loader.systemd-boot = {
+    editor = false;
 
-    kernel.sysctl."kernel.sysrq" = 1;
+    configurationLimit = 6;
   };
 }

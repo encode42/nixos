@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (flakeRoot + /modules/server/nfs.nix)
+    (flakeRoot + /modules/server/filesystem/nfs.nix)
   ];
 
   services.nfs.server = {

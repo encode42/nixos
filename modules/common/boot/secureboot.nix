@@ -10,16 +10,19 @@
 
 {
   imports = [
-    ./systemd-boot.nix
     lanzaboote.nixosModules.lanzaboote
+
+    ./common.nix
   ];
 
-  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot = {
+    loader.systemd-boot.enable = lib.mkForce false;
 
-  boot.lanzaboote = {
-    enable = true;
+    lanzaboote = {
+      enable = true;
 
-    pkiBundle = "/var/lib/sbctl";
+      pkiBundle = "/var/lib/sbctl";
+    };
   };
 
   environment.systemPackages = with pkgs; [

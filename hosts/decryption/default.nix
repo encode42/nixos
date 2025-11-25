@@ -12,10 +12,13 @@
     ./disks.nix
     (flakeRoot + /hardware/cpu/amd.nix)
     (flakeRoot + /hardware/gpu/nvidia.nix)
+    (flakeRoot + /hardware/memory/oom.nix)
+    (flakeRoot + /hardware/audio/pipewire.nix)
+    (flakeRoot + /hardware/network/wifi.nix)
+    (flakeRoot + /hardware/network/bluetooth.nix)
 
     (flakeRoot + /modules/common)
     (flakeRoot + /modules/common/boot/secureboot.nix)
-    (flakeRoot + /modules/common/system/audio.nix)
 
     (flakeRoot + /modules/desktop/environments/gnome.nix)
 
