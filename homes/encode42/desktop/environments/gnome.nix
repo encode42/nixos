@@ -1,4 +1,9 @@
-{ pkgs, lib, isLaptop, ... }:
+{
+  pkgs,
+  lib,
+  isLaptop,
+  ...
+}:
 
 {
   dconf = {
@@ -92,7 +97,7 @@
         play-audio-on-copy = false;
         send-notification-on-copy = false;
 
-        exclusion-list = ["Goldwarden"];
+        exclusion-list = [ "Goldwarden" ];
 
         session-only-mode = true;
       };

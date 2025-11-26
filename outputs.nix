@@ -1,6 +1,8 @@
 { ... }@inputs:
 
 let
+  forAllSystems = inputs.nixpkgs.lib.genAttrs inputs.nixpkgs.lib.systems.flakeExposed;
+
   mkSystem = import ./lib/mkSystem.nix {
     inherit inputs;
 
@@ -8,7 +10,7 @@ let
   };
 in
 {
-  formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+  formatter = forAllSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt-tree);
 
   nixosConfigurations = {
     encryption = mkSystem {
