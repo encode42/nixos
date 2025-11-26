@@ -4,18 +4,32 @@
   programs.zed-editor = {
     enable = true;
 
+    package = pkgs-unstable.zed-editor;
+
     extensions = [
+      "rust"
+
       "nix"
       "toml"
-      "rust"
-      "catppuccin"
+      "json5"
+      "env"
+
       "biome"
+
+      "catppuccin"
+      "catppuccin-icons"
     ];
 
     userSettings = {
       theme = {
         mode = "system";
-        light = "Catpuccin Frappe";
+        light = "Catpuccin Frappé";
+        dark = "Catppuccin Macchiato";
+      };
+
+      icon_theme = {
+        mode = "system";
+        light = "Catppuccin Frappé";
         dark = "Catppuccin Macchiato";
       };
 
@@ -37,20 +51,19 @@
     };
 
     extraPackages = with pkgs; [
-      nil
-      nixd
-
       rust-analyzer
 
       bun
       nodejs
-      eslint
+      typescript-language-server
+      package-version-server
+
+      nil
+      nixd
 
       # stable is way too outdated
       pkgs-unstable.biome
-
-      typescript-language-server
-      vscode-langservers-extracted
+      eslint
     ];
   };
 }
