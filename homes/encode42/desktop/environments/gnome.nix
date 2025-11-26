@@ -63,6 +63,11 @@
         automatic-timezone = isLaptop;
       };
 
+      "org/gnome/shell/extensions/appindicator" = {
+        icon-brightness = 1.0;
+        icon-saturation = 1.0;
+      };
+
       "org/gnome/shell/extensions/hidetopbar" = {
         animation-time-autohide = 0.2;
         animation-time-overview = 0.2;
@@ -73,6 +78,8 @@
       };
 
       "org/gnome/shell/extensions/tilingshell" = {
+        show-indicator = false;
+
         top-edge-maximize = true;
       };
 
