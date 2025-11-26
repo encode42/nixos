@@ -35,6 +35,7 @@
 
     ./config/language/omnipoly.nix
 
+    ./config/sharing/prowlarr.nix
     ./config/sharing/rtorrent.nix
     ./config/sharing/soulseek.nix
 
