@@ -83,8 +83,6 @@ in
 
       biomePackage
       eslint
-
-      jetbrains-mono
     ];
   };
 
