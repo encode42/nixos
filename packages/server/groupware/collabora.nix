@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 # Socket support: https://github.com/CollaboraOnline/online/issues/7156
 
@@ -50,4 +50,24 @@
   boot.kernel.sysctl = {
     "kernel.unprivileged_userns_clone" = 1;
   };
+
+  environment.systemPackages = with pkgs; [
+    open-sans
+    fira-sans
+    ubuntu-sans
+
+    noto-fonts
+    roboto
+
+    inter
+    ibm-plex
+    montserrat
+    miracode
+    monocraft
+
+    jetbrains-mono
+    fira-code
+    ubuntu-sans-mono
+    roboto-mono
+  ];
 }
