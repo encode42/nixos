@@ -15,6 +15,8 @@
         "browser.newtabpage.enabled" = false;
         "browser.startup.page" = 0;
 
+        "browser.sessionstore.resume_from_crash" = false;
+
         "browser.download.autohideButton" = false;
         "browser.uiCustomization.horizontalTabstrip" = "[\"tabbrowser-tabs\",\"new-tab-button\"]";
         "browser.uiCustomization.navBarWhenVerticalTabs" =
