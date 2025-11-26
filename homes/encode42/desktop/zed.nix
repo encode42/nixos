@@ -1,5 +1,14 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  lib,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 
+let
+  # stable is way too outdated
+  biomePackage = pkgs-unstable.biome;
+in
 {
   programs.zed-editor = {
     enable = true;
@@ -33,17 +42,28 @@
         dark = "Catppuccin Macchiato";
       };
 
-      nix = {
-        binary = {
-          path_lookup = true;
+      buffer_font_family = "Jetbrains Mono";
 
-          arguments = [ "autoArchive" ];
+      terminal = {
+        font_family = "Jetbrains Mono";
+      };
+
+      languages = {
+        Nix = {
+          language_servers = [
+            "nil"
+            "!nixd"
+          ];
+
+          formatter.external = {
+            command = "nixfmt";
+          };
         };
       };
 
-      biome = {
-        binary = {
-          path_lookup = true;
+      lsp = {
+        biome.binary = {
+          path = lib.getExe biomePackage;
 
           arguments = [ "lsp-proxy" ];
         };
@@ -59,11 +79,16 @@
       package-version-server
 
       nil
-      nixd
+      nixfmt-rfc-style
 
-      # stable is way too outdated
-      pkgs-unstable.biome
+      biomePackage
       eslint
+
+      jetbrains-mono
     ];
   };
+
+  home.packages = with pkgs; [
+    jetbrains-mono
+  ];
 }
