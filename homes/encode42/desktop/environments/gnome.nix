@@ -14,6 +14,10 @@
         clock-format = "12h";
       };
 
+      "org/gnome/Console" = {
+        custom-font = "JetBrains Mono 11";
+      };
+
       "org/gnome/shell" = {
         favorite-apps = [ ];
 
@@ -108,5 +112,7 @@
     gnomeExtensions.tiling-shell
     gnomeExtensions.pano
     gnomeExtensions.blur-my-shell
+
+    jetbrains-mono
   ];
 }
