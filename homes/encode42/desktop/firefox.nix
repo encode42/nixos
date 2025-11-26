@@ -7,6 +7,14 @@
 
   programs.firefox = {
     profiles.default = {
+      userChrome = ''
+        /* hide tab close buttons when tab bar collapsed */
+        /* https://www.reddit.com/r/firefox/comments/1klv475/comment/ms5sf93/ */
+        #tabbrowser-tabs[orient=vertical]:not([expanded]) .tabbrowser-tab .tab-close-button {
+          display: none !important;
+        }
+      '';
+
       settings = {
         "sidebar.verticalTabs" = true;
         "sidebar.main.tools" = "history";
