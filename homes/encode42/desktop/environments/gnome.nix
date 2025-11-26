@@ -1,4 +1,4 @@
-{ lib, isLaptop, ... }:
+{ pkgs, lib, isLaptop, ... }:
 
 {
   dconf = {
@@ -16,6 +16,14 @@
 
       "org/gnome/shell" = {
         favorite-apps = [ ];
+
+        enabled-extensions = with pkgs; [
+          gnomeExtensions.appindicator.extensionUuid # TODO: make this not needed
+          gnomeExtensions.tiling-shell.extensionUuid
+          gnomeExtensions.pano.extensionUuid
+          gnomeExtensions.hide-top-bar.extensionUuid
+          gnomeExtensions.blur-my-shell.extensionUuid
+        ];
       };
 
       "org/gnome/desktop/search-providers" = {
@@ -54,6 +62,44 @@
       "org/gnome/desktop/datetime" = {
         automatic-timezone = isLaptop;
       };
+
+      "org/gnome/shell/extensions/hidetopbar" = {
+        animation-time-autohide = 0.2;
+        animation-time-overview = 0.2;
+
+        enable-intellihide = false;
+
+        hot-corner = true;
+      };
+
+      "org/gnome/shell/extensions/tilingshell" = {
+        top-edge-maximize = true;
+      };
+
+      "org/gnome/shell/extensions/pano" = {
+        keep-search-entry = false;
+        play-audio-on-copy = false;
+        send-notification-on-copy = false;
+
+        exclusion-list = ["Goldwarden"];
+
+        session-only-mode = true;
+      };
+
+      "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
+        compatibility = true;
+      };
+
+      "org/gnome/shell/extensions/blur-my-shell" = {
+        hacks-level = 0;
+      };
     };
   };
+
+  home.packages = with pkgs; [
+    gnomeExtensions.hide-top-bar
+    gnomeExtensions.tiling-shell
+    gnomeExtensions.pano
+    gnomeExtensions.blur-my-shell
+  ];
 }
