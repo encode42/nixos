@@ -58,16 +58,34 @@
     '';
   };
 
-  # Required override for linux-hardened kernel
-  systemd.services.rtorrent.serviceConfig = {
-    SystemCallFilter = lib.mkForce "@system-service";
-  };
-
   networking.firewall = lib.mkIf openFirewall {
     allowedTCPPortRanges = [ listenPortRange ];
     allowedUDPPortRanges = [ listenPortRange ];
   };
 
+  # Required override for linux-hardened kernel
+  systemd.services.rtorrent.serviceConfig = {
+    SystemCallFilter = lib.mkForce "@system-service";
+  };
+
   # Add Flood to the rtorrent group for file management
   systemd.services.flood.serviceConfig.SupplementaryGroups = [ config.services.rtorrent.group ];
+
+  # Caddy reverse proxy configuration
+  users.users.caddy.extraGroups = [ config.services.rtorrent.group ];
+
+  services.caddy.virtualHosts.rtorrent = {
+    hostName = ":50000";
+
+    listenAddresses = [
+      "127.0.0.1"
+      "::1"
+    ];
+
+    extraConfig = ''
+      reverse_proxy unix/${config.services.rtorrent.rpcSocket} {
+        transport scgi
+      }
+    '';
+  };
 }
