@@ -57,6 +57,10 @@
         night-light-temperature = lib.hm.gvariant.mkUint32 3700;
       };
 
+      "org/gnome/TextEditor" = {
+        restore-session = false;
+      };
+
       "org/gnome/desktop/privacy" = {
         recent-files-max-age = 7;
 
@@ -73,7 +77,8 @@
       };
 
       "org/gnome/shell/extensions/appindicator" = {
-        icon-brightness = 1.0;
+        icon-brightness = 0.6;
+        icon-contrast = 0.5;
         icon-saturation = 1.0;
       };
 
@@ -108,6 +113,10 @@
 
       "org/gnome/shell/extensions/blur-my-shell" = {
         hacks-level = 0;
+      };
+
+      "org/gnome/shell/extensions/blur-my-shell/overview" = {
+        style-components = 1;
       };
     };
   };
