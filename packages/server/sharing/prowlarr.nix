@@ -15,7 +15,11 @@ in
 {
   # Unstable to use dataDir option, roll back to stable once 25.11 releases
   disabledModules = [ prowlarrModulePath ];
-  imports = [ "${pkgs-unstable.path}/nixos/modules/${prowlarrModulePath}" ];
+  imports = [
+    "${pkgs-unstable.path}/nixos/modules/${prowlarrModulePath}"
+
+    ./byparr.nix
+  ];
 
   services.prowlarr = {
     enable = true;

@@ -1,0 +1,5 @@
+{
+  services.byparr = {
+    enable = true;
+  };
+}
