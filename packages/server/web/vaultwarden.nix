@@ -58,10 +58,9 @@ in
       ROCKET_ADDRESS = "127.0.0.1"; # "unix:${socket}"; Supposedly, this is supported. However, it is not.
       DATABASE_URL = "postgresql:///vaultwarden?host=/run/postgresql";
     };
-
-    package = pkgs-unstable.vaultwarden; # TODO: just use stable?
   };
 
+  # Caddy reverse proxy configuration
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy :8000 # unix/${socket}
   '';

@@ -30,6 +30,7 @@
     };
   };
 
+  # Caddy reverse proxy configuration
   systemd.services.miniflux.serviceConfig.RuntimeDirectoryMode = lib.mkForce "0755";
 
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''

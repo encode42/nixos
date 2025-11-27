@@ -89,12 +89,14 @@
     };
   };
 
+  # Required override for linux-hardened kernel
   systemd.services.forgejo.serviceConfig = {
     Type = lib.mkForce "exec";
 
     PrivateDevices = lib.mkForce false;
   };
 
+  # Caddy reverse proxy configuration
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy unix/${config.services.forgejo.settings.server.HTTP_ADDR} {
       transport fastcgi

@@ -60,6 +60,7 @@
     };
   };
 
+  # Caddy reverse proxy configuration
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy unix/${config.services.wakapi.settings.server.listen_socket}
   '';

@@ -58,11 +58,8 @@ in
         targetAudioCodec = "libopus";
 
         crf = 31;
-        #maxBitrate = 2600;
         twoPass = true;
 
-        # assumes AMD GPU, to modularize
-        accel = "vaapi";
         preferredHwDevice = videoDevice;
         accelDecode = true;
       };
@@ -91,6 +88,7 @@ in
     "render"
   ];
 
+  # Caddy reverse proxy configuration
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy :${toString config.services.immich.port}
   '';

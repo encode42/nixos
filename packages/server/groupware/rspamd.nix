@@ -5,14 +5,6 @@
     ../databases/redis.nix
   ];
 
-  services.redis.servers.rspamd = {
-    enable = true;
-
-    port = 0;
-
-    user = config.services.rspamd.user;
-  };
-
   services.rspamd = {
     enable = true;
 
@@ -26,5 +18,14 @@
         autolearn = true;
       '';
     };
+  };
+
+  # Ensure creation of Redis database
+  services.redis.servers.rspamd = {
+    enable = true;
+
+    port = 0;
+
+    user = config.services.rspamd.user;
   };
 }

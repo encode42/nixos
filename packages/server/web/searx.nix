@@ -501,6 +501,9 @@
     };
   };
 
+  # Caddy reverse proxy configuration
+  users.users.caddy.extraGroups = [ config.users.users.searx.group ];
+
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy unix/${config.services.searx.uwsgiConfig.socket} {
       transport uwsgi
@@ -509,6 +512,4 @@
       header_up X-Real-IP {http.request.header.CF-Connecting-IP}
     }
   '';
-
-  users.users.caddy.extraGroups = [ config.users.users.searx.group ];
 }

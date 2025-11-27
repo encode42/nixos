@@ -94,10 +94,11 @@
         "^(\.?pdf|\.?docx|\.?xlsx)$"
       ];
 
-      # Numbers are measured in hours
       retention = {
-        search = 5; # Users go offline often, invalidating search
+        # Users go offline often, invalidating search
+        search = 5;
 
+        # The following numbers are measured in hours
         transfers = {
           upload = {
             succeeded = 10080;
@@ -122,12 +123,13 @@
   };
 
   systemd.services.slskd.serviceConfig = {
-    RuntimeDirectory = "slskd";
+    RuntimeDirectory = config.services.slskd.user;
     RuntimeDirectoryMode = "0750";
     UMask = "0007";
   };
 
-  users.users.caddy.extraGroups = [ "slskd" ];
+  # Caddy reverse proxy configuration
+  users.users.caddy.extraGroups = [ config.services.slskd.group ];
 
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy unix/${toString config.services.slskd.settings.web.socket} {

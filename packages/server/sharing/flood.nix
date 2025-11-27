@@ -16,7 +16,6 @@ let
   socket = "/run/flood/flood.sock";
 in
 {
-
   services.flood = {
     enable = true;
 
@@ -45,12 +44,13 @@ in
     RuntimeDirectoryMode = "0750";
     UMask = "0007";
 
-    Group = "flood-proxy";
+    Group = config.users.groups.flood-proxy.name;
   };
 
   users.groups.flood-proxy = { };
 
-  users.users.caddy.extraGroups = [ "flood-proxy" ];
+  # Caddy reverse proxy configuration
+  users.users.caddy.extraGroups = [ config.users.groups.flood-proxy.name ];
 
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy unix/${socket}

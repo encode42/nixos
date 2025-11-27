@@ -31,4 +31,6 @@
       cudaSupport = true;
     }
   );
+
+  services.immich.settings.ffmpeg.accel = "nvenc";
 }

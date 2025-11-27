@@ -12,4 +12,6 @@
   programs.obs-studio.plugins = with pkgs.obs-studio-plugins; [
     obs-vaapi
   ];
+
+  services.immich.settings.ffmpeg.accel = "vaapi";
 }

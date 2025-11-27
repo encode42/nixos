@@ -18,6 +18,7 @@
     };
   };
 
+  # Caddy reverse proxy configuration
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy :${config.services.libretranslate.port}
   '';

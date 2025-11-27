@@ -32,27 +32,6 @@ in
     autoconfigModule
   ];
 
-  services.postgresql = {
-    ensureUsers = [
-      {
-        name = "maddy";
-        ensureDBOwnership = true;
-      }
-    ];
-
-    ensureDatabases = [ "maddy" ];
-  };
-
-  services.rspamd = {
-    locals."dkim_signing.conf".text = ''
-      selector = "default";
-      domain = "${subdomain}";
-      path = "/var/lib/maddy/dkim_keys/$domain_$selector.key";
-    '';
-  };
-
-  systemd.services.rspamd.serviceConfig.SupplementaryGroups = [ "maddy" ];
-
   services.maddy = {
     enable = true;
 
@@ -231,4 +210,27 @@ in
     143
     993
   ];
+
+  # Ensure creation of PostgreSQL database
+  services.postgresql = {
+    ensureUsers = [
+      {
+        name = "maddy";
+        ensureDBOwnership = true;
+      }
+    ];
+
+    ensureDatabases = [ "maddy" ];
+  };
+
+  # Configure rspamd
+  services.rspamd = {
+    locals."dkim_signing.conf".text = ''
+      selector = "default";
+      domain = "${subdomain}";
+      path = "/var/lib/maddy/dkim_keys/$domain_$selector.key";
+    '';
+  };
+
+  systemd.services.rspamd.serviceConfig.SupplementaryGroups = [ "maddy" ];
 }

@@ -67,9 +67,10 @@ in
     package = pkgs-unstable.navidrome; # TODO: Switch back to stable once BFR is ready
   };
 
+  # Caddy reverse proxy configuration
+  users.users.caddy.extraGroups = [ config.users.users.navidrome.group ];
+
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
     reverse_proxy unix/${socket}
   '';
-
-  users.users.caddy.extraGroups = [ config.users.users.navidrome.group ];
 }

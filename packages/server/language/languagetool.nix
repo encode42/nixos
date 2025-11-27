@@ -30,7 +30,6 @@ in
     jrePackage = pkgs.temurin-jre-bin;
   };
 
-  systemd.services.languagetool.environment = {
-    LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib"; # Fix for Hunspell bindings
-  };
+  # Fix for Hunspell bindings
+  systemd.services.languagetool.environment.LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
 }
