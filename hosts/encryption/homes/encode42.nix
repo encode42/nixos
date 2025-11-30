@@ -65,6 +65,7 @@ in
     rsgain
     audacity
     pkgs-unstable.puddletag
+    pkgs-unstable.eartag
 
     blockbench
 
