@@ -45,7 +45,7 @@
       };
 
       extensions = {
-        packages = with firefox-addons.packages.${pkgs.system}; [
+        packages = with firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
           fastforwardteam
           indie-wiki-buddy
         ];

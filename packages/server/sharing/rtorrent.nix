@@ -18,6 +18,7 @@
   services.rtorrent = {
     enable = true;
 
+    # Unstable for rtorrent 0.16.3, roll back to stable once backported
     package = pkgs-unstable.rtorrent;
 
     configText = ''

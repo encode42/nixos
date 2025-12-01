@@ -7,7 +7,6 @@
   lib,
   flakeLib,
   pkgs,
-  pkgs-unstable,
   utils ? pkgs.utils,
   ...
 }:
@@ -18,8 +17,6 @@ in
 {
   services.flood = {
     enable = true;
-
-    package = pkgs-unstable.flood;
 
     extraArgs = [
       "--rtsocket=${config.services.rtorrent.rpcSocket}"

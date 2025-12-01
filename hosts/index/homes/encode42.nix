@@ -15,6 +15,8 @@
 
   home.packages = with pkgs; [
     cyanrip
+
+    # Unstable to keep up-to-date with authentication servers
     pkgs-unstable.makemkv
   ];
 }

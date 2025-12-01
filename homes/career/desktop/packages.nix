@@ -5,6 +5,7 @@
     slack
     notion-app-enhanced
 
-    modrinth-app
+    # Awaiting the merge of #466573
+    #modrinth-app
   ];
 }

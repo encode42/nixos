@@ -29,7 +29,6 @@
         enabled-extensions = with pkgs; [
           gnomeExtensions.appindicator.extensionUuid # TODO: make this not needed
           gnomeExtensions.tiling-shell.extensionUuid
-          gnomeExtensions.pano.extensionUuid
           gnomeExtensions.hide-top-bar.extensionUuid
           gnomeExtensions.blur-my-shell.extensionUuid
         ];
@@ -97,16 +96,6 @@
         top-edge-maximize = true;
       };
 
-      "org/gnome/shell/extensions/pano" = {
-        keep-search-entry = false;
-        play-audio-on-copy = false;
-        send-notification-on-copy = false;
-
-        exclusion-list = [ "Goldwarden" ];
-
-        session-only-mode = true;
-      };
-
       "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
         compatibility = true;
       };
@@ -124,7 +113,6 @@
   home.packages = with pkgs; [
     gnomeExtensions.hide-top-bar
     gnomeExtensions.tiling-shell
-    gnomeExtensions.pano
     gnomeExtensions.blur-my-shell
 
     jetbrains-mono

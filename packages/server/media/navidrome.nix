@@ -5,7 +5,6 @@
 {
   config,
   flakeLib,
-  pkgs-unstable,
   ...
 }:
 
@@ -63,8 +62,6 @@ in
       ImageCacheSize = "2GB";
       TranscodingCacheSize = "8GB";
     };
-
-    package = pkgs-unstable.navidrome; # TODO: Switch back to stable once BFR is ready
   };
 
   # Caddy reverse proxy configuration

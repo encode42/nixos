@@ -2,7 +2,7 @@
   hosts ? [ ],
 }:
 
-{ flakeLib, pkgs-unstable, ... }:
+{ flakeLib, ... }:
 
 let
   socket = "/run/vaultwarden/vaultwarden.sock";

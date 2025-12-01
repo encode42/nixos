@@ -25,10 +25,6 @@ let
 
   pkgs-personal = inputs.encode42-packages.packages.${system};
 
-  pkgs-winboat = import inputs.nixpkgs-winboat {
-    inherit system;
-  };
-
   lib = inputs.nixpkgs.lib;
 
   flakeLib = import ./default.nix {
@@ -62,7 +58,6 @@ lib.nixosSystem {
       flakeLib
       pkgs-unstable
       pkgs-personal
-      pkgs-winboat
       isLaptop
       hostName
       ;

@@ -1,6 +1,6 @@
 { email }:
 
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   services.caddy = {
@@ -21,8 +21,7 @@
       order scgi after reverse_proxy
     '';
 
-    # unstable for caddy 2.10.2, roll back to stable once 25.11 releases
-    package = pkgs-unstable.caddy.withPlugins {
+    package = pkgs.caddy.withPlugins {
       plugins = [
         "github.com/caddy-dns/cloudflare@v0.2.1"
         "github.com/WeidiDeng/caddy-cloudflare-ip@v0.0.0-20231130002422-f53b62aa13cb"

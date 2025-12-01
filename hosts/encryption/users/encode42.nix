@@ -10,7 +10,6 @@
 
     (flakeRoot + /packages/common/yubikey.nix)
 
-    (flakeRoot + /packages/desktop/gnome/goldwarden.nix)
     (flakeRoot + /packages/desktop/gnome/localsend.nix)
 
     (flakeRoot + /packages/desktop/obs.nix)

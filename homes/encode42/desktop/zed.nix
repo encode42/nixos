@@ -1,19 +1,15 @@
 {
   lib,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 
 let
-  # stable is way too outdated
-  biomePackage = pkgs-unstable.biome;
+  biomePackage = pkgs.biome;
 in
 {
   programs.zed-editor = {
     enable = true;
-
-    package = pkgs-unstable.zed-editor;
 
     extensions = [
       "rust"

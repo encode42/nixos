@@ -1,7 +1,6 @@
 {
   flakeRoot,
   pkgs,
-  pkgs-unstable,
   pkgs-personal,
   ...
 }:
@@ -64,15 +63,15 @@ in
     ffmpeg
     rsgain
     audacity
-    pkgs-unstable.puddletag
-    pkgs-unstable.eartag
+    puddletag
+    mediaelch
 
     blockbench
 
     clonehero
     openrct2
     r2modman
-    pkgs-unstable.olympus
+    olympus
     pkgs-personal.iso2god-rs
   ];
 }

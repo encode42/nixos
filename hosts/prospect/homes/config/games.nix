@@ -14,13 +14,13 @@ let
     xemu # Microsoft Xbox
     melonDS # Nintendo DS
     ppsspp-qt # Sony Playstation Portable
+    xenia-canary # Microsoft Xbox 360
     rpcs3 # Sony Playstation 3
     azahar # Nintendo 3DS
     cemu # Nintendo Wii U
   ];
 
   unstable-emulators = with pkgs-unstable; [
-    xenia-canary # Microsoft Xbox 360
   ];
 
   # TODO: Vita3k and Gearsystem
@@ -30,7 +30,7 @@ in
     with pkgs;
     [
       r2modman
-      pkgs-unstable.olympus
+      olympus
     ]
     ++ stable-emulators
     ++ unstable-emulators;

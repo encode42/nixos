@@ -3,7 +3,7 @@
 
   inputs = {
     # Basic Nix/OS functionality
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -21,7 +21,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -64,8 +64,6 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixpkgs-winboat.url = "github:Rexcrazy804/nixpkgs/winboat-init";
   };
 
   outputs = args: import ./outputs.nix args;
