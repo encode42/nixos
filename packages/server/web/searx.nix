@@ -15,7 +15,7 @@
 
     redisCreateLocally = true;
 
-    runInUwsgi = true;
+    configureUwsgi = true;
     uwsgiConfig = {
       socket = "/run/searx/searx.sock";
       http = ":8888";
