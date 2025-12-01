@@ -58,6 +58,17 @@ in
       };
 
       lsp = {
+        nil.settings = {
+          nix = {
+            maxMemoryMb = 8192;
+
+            flake = {
+              autoArchive = true;
+              autoEvalInputs = true;
+            };
+          };
+        };
+
         biome.binary = {
           path = lib.getExe biomePackage;
 
