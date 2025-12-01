@@ -47,6 +47,7 @@ in
 
     (flakeRoot + /homes/encode42/desktop/jetbrains/rider.nix)
     (flakeRoot + /homes/encode42/desktop/jetbrains/intellij.nix)
+    (flakeRoot + /homes/encode42/desktop/bitwarden.nix)
     (flakeRoot + /homes/encode42/desktop/discord.nix)
     (flakeRoot + /homes/encode42/desktop/firefox.nix)
     (flakeRoot + /homes/encode42/desktop/zed.nix)
