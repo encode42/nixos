@@ -16,6 +16,7 @@
     (flakeRoot + /modules/common/boot/systemd-boot.nix)
     (flakeRoot + /modules/common/network/dns.nix)
 
+    (flakeRoot + /modules/server/filesystem/ulimit.nix)
     (flakeRoot + /modules/server/openssh.nix)
 
     (flakeRoot + /packages/server/iperf.nix)
@@ -30,7 +31,7 @@
     ./config/groupware/maddy.nix
 
     ./config/media/audiobookshelf.nix
-    #./config/media/emby.nix
+    ./config/media/emby.nix
     ./config/media/navidrome.nix
 
     ./config/language/omnipoly.nix

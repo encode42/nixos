@@ -1,10 +1,8 @@
 { flakeRoot, ... }:
 
-{
-  imports = [
-    (flakeRoot + /packages/server/media/emby.nix)
-    {
-      hosts = [
+let
+  embyModule = import (flakeRoot + /packages/server/media/emby.nix) {
+    hosts = [
         {
           name = "emby.lan";
           ssl = "internal";
@@ -16,7 +14,11 @@
           useLocal = true;
         }
       ];
-    }
+  };
+in
+{
+  imports = [
+    embyModule
   ];
 
   services.emby = {
