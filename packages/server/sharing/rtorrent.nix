@@ -21,14 +21,12 @@
     package = pkgs-unstable.rtorrent;
 
     configText = ''
-      # Disabled due to a bug in rtorrent 0.16
-      dht.mode.set = off
+      dht.mode.set = on
       dht.port.set = ${toString dhtPort}
       protocol.pex.set = yes
       trackers.use_udp.set = yes
       network.port_range.set = ${toString listenPortRange.from}-${toString listenPortRange.to}
 
-      throttle.max_downloads.set = 100
       throttle.max_uploads.global.set = 300
 
       trackers.numwant.set = 100
@@ -40,7 +38,7 @@
       # Assumes a more powerful machine
       pieces.memory.max.set = 4000M
       pieces.preload.type.set = 2
-      pieces.preload.min_rate.set = 50000
+      pieces.preload.min_rate.set = 30720
 
       # TODO: seeding ratio for sonarr/etc.
       #ratio.enable=
@@ -48,7 +46,14 @@
       #ratio.max.set=300
       #system.method.set = group.seeding.ratio.command, d.close=
 
-      schedule2 = throttle_slow, 10:00:00, 24:00:00, ((throttle.global_up.max_rate.set_kb, 4000))
+      # Don't kill the internet
+      schedule2 = throttle_download_limit_slow, 8:00:00, 24:00:00, ((throttle.max_downloads.global.set, 50))
+      schedule2 = throttle_download_slow, 8:00:00, 24:00:00, ((throttle.global_down.max_rate.set_kb, 10240))
+      schedule2 = throttle_upload_slow, 8:00:00, 24:00:00, ((throttle.global_up.max_rate.set_kb, 4096))
+
+      schedule2 = throttle_download_limit_fast, 22:00:00, 24:00:00, ((throttle.max_downloads.global.set, 200))
+      schedule2 = throttle_download_fast, 22:00:00, 24:00:00, ((throttle.global_down.max_rate.set_kb, 0))
+      schedule2 = throttle_upload_fast, 22:00:00, 24:00:00, ((throttle.global_up.max_rate.set_kb, 0))
 
       # Compatibility with Flood
       method.redirect = load.throw,load.normal
