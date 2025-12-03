@@ -1,63 +1,62 @@
-{ flakeRoot, ... }:
+{
+  flakeRoot,
+  flakeLib,
+  config,
+  ...
+}:
 
+let
+  mediaGroupName = config.users.groups.media.name;
+
+  embySharePaths = [
+    "Documentaries"
+    "Live Performances"
+    "Movies"
+    "Music Videos"
+    "Shows"
+  ];
+
+  embyShares = map (path: {
+    path = "/mnt/data/media/${path}";
+
+    userName = config.services.emby.user;
+    groupName = mediaGroupName;
+  }) embySharePaths;
+
+  shares = [
+    {
+      name = "torrents";
+
+      path = "/mnt/data/rtorrent/downloads";
+
+      userName = config.services.rtorrent.user;
+      groupName = mediaGroupName;
+    }
+    {
+      name = "soulseek";
+
+      path = "/mnt/data/soulseek/downloads";
+
+      userName = config.services.slskd.user;
+      groupName = mediaGroupName;
+    }
+    {
+      path = "/mnt/data/media/Music";
+
+      userName = config.services.navidrome.user;
+      groupName = mediaGroupName;
+    }
+  ]
+  ++ embyShares;
+in
 {
   imports = [
     (flakeRoot + /modules/server/filesystem/nfs.nix)
+
+    (flakeLib.mkShares shares)
   ];
 
   services.nfs.server = {
     nproc = 16;
   };
-
-  # TODO: Write a function that can improve this
-
-  fileSystems."/export/media" = {
-    depends = [
-      "/mnt/data"
-    ];
-
-    device = "/mnt/data/media";
-    fsType = "none";
-
-    options = [
-      "bind"
-      "x-systemd.requires=zfs-mount.service"
-    ];
-  };
-
-  fileSystems."/export/torrents" = {
-    depends = [
-      "/mnt/data"
-    ];
-
-    device = "/mnt/data/rtorrent/downloads";
-    fsType = "none";
-
-    options = [
-      "bind"
-      "x-systemd.requires=zfs-mount.service"
-    ];
-  };
-
-  fileSystems."/export/soulseek" = {
-    depends = [
-      "/mnt/data"
-    ];
-
-    device = "/mnt/data/soulseek/downloads";
-    fsType = "none";
-
-    options = [
-      "bind"
-      "x-systemd.requires=zfs-mount.service"
-    ];
-  };
-
-  # TODO: Automatically grab user and group IDs?
-  services.nfs.server.exports = ''
-    /export *(fsid=0,ro,insecure)
-    /export/media *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=991,anongid=442)
-    /export/torrents *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=987,anongid=972)
-    /export/soulseek *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=985,anongid=973)
-  '';
 }

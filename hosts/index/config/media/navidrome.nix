@@ -1,4 +1,4 @@
-{ flakeRoot, ... }:
+{ flakeRoot, config, ... }:
 
 let
   navidromeModule = import (flakeRoot + /packages/server/media/navidrome.nix) {
@@ -15,6 +15,8 @@ let
       }
     ];
   };
+
+  service = config.services.navidrome;
 in
 {
   imports = [
@@ -29,4 +31,7 @@ in
 
     environmentFile = "/mnt/apps/navidrome/navidrome.env";
   };
+
+  users.users.${service.user}.uid = 991;
+  users.groups.${service.user}.gid = 974;
 }

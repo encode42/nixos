@@ -1,6 +1,7 @@
 {
   flakeRoot,
   lib,
+  config,
   ...
 }:
 
@@ -34,6 +35,8 @@ let
       }
     ];
   };
+
+  service = config.services.rtorrent;
 in
 {
   imports = [
@@ -69,4 +72,7 @@ in
 
     vpnNamespace = interface;
   };
+
+  users.users.${service.user}.uid = 987;
+  users.groups.${service.group}.gid = 972;
 }

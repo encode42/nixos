@@ -13,6 +13,8 @@ let
       }
     ];
   };
+
+  service = config.services.slskd;
 in
 {
   imports = [
@@ -64,5 +66,11 @@ in
     vpnNamespace = interface;
   };
 
-  users.users.${config.services.slskd.user}.extraGroups = [ "media" ];
+  users.users.${service.user} = {
+    uid = 985;
+
+    extraGroups = [ "media" ];
+  };
+
+  users.groups.${service.group}.gid = 973;
 }
