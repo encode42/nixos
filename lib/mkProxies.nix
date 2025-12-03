@@ -1,5 +1,7 @@
 { lib }:
 
+# hosts:
+# [ { name = str; ssl = str; useLocal = bool?; } ];
 hosts: proxy:
 
 let
