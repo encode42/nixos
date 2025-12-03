@@ -16,7 +16,7 @@ let
     let
       directories = lib.filter (x: x != "") (lib.splitString "/" target.path);
 
-      exportPath = "/exports/${target.name or (lib.last directories)}";
+      exportPath = "/export/${target.name or (lib.last directories)}";
 
       mountName = builtins.elemAt directories 1;
       isZfsPool = lib.elem mountName config.boot.zfs.extraPools;
@@ -36,7 +36,7 @@ let
       };
 
       nfsExport = ''
-        "${exportPath}\" *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=${toString user.uid},anongid=${toString group.gid})
+        "${exportPath}" *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=${toString user.uid},anongid=${toString group.gid})
       '';
     };
 
