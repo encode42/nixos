@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     (flakeRoot + /hardware/cpu/amd.nix)
     (flakeRoot + /hardware/gpu/amd.nix)
+    (flakeRoot + /hardware/peripherals/optical.nix)
 
     (flakeRoot + /modules/common)
     (flakeRoot + /modules/common/boot/systemd-boot.nix)
