@@ -23,6 +23,9 @@ let
 
       user = config.users.users.${target.userName};
       group = config.users.groups.${target.groupName or user.group};
+
+      userId = toString user.uid;
+      groupId = toString (group.gid or user.gid);
     in
     {
       inherit exportPath;
@@ -36,7 +39,7 @@ let
       };
 
       nfsExport = ''
-        "${exportPath}" *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=${toString user.uid},anongid=${toString group.gid})
+        "${exportPath}" *(rw,insecure,async,no_subtree_check,nohide,all_squash,anonuid=${userId},anongid=${groupId})
       '';
     };
 

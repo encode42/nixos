@@ -25,7 +25,7 @@ let
 
   shares = [
     {
-      name = "torrents";
+      name = "Torrents";
 
       path = "/mnt/data/rtorrent/downloads";
 
@@ -33,13 +33,21 @@ let
       groupName = mediaGroupName;
     }
     {
-      name = "soulseek";
+      name = "Soulseek";
 
       path = "/mnt/data/soulseek/downloads";
 
       userName = config.services.slskd.user;
       groupName = mediaGroupName;
     }
+#    {
+#      name = "Rips";
+
+#      path = "/mnt/data/rips";
+
+#      userName = "encode42";
+#      groupName = mediaGroupName;
+#    }
     {
       path = "/mnt/data/media/Music";
 
