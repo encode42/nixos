@@ -21,5 +21,11 @@ in
     linkwardenModule
   ];
 
-  services.linkwarden.environmentFile = "/mnt/apps/linkwarden/linkwarden.env";
+  services.linkwarden = {
+    port = 3113;
+
+    storageLocation = "/mnt/data/linkwarden";
+
+    environmentFile = "/mnt/apps/linkwarden/linkwarden.env";
+  };
 }
