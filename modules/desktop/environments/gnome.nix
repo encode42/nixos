@@ -55,6 +55,8 @@
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
 
+    file-roller
+
     gnome-calendar
     gnome-feeds
 
