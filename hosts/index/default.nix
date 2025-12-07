@@ -44,6 +44,7 @@
 
     ./config/web/caddy.nix
     ./config/web/forgejo.nix
+    #./config/web/linkwarden.nix
     ./config/web/miniflux.nix
     ./config/web/searx.nix
     ./config/web/vaultwarden.nix
