@@ -84,8 +84,8 @@ in
   };
 
   users.users.immich.extraGroups = [
-    "video"
     "render"
+    "video"
   ];
 
   # Caddy reverse proxy configuration
