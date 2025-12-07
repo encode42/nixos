@@ -38,4 +38,6 @@
       };
     };
   };
+
+  services.netdata.config.plugins = { "go.d" = "yes"; };
 }

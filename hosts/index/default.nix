@@ -22,6 +22,7 @@
 
     (flakeRoot + /packages/server/iperf.nix)
 
+    ./config/netdata-agent.nix
     ./config/zfs.nix
     ./config/nfs.nix
 
