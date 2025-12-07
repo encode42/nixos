@@ -3,7 +3,7 @@
 let
   host = "photos.encrypted.group";
 
-  immichModule = import (flakeRoot + /packages/server/web/immich.nix) {
+  immichModule = import (flakeRoot + /packages/server/media/immich.nix) {
     hosts = [
       {
         name = "immich.lan";

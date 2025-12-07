@@ -33,6 +33,7 @@
 
     ./config/media/audiobookshelf.nix
     ./config/media/emby.nix
+    ./config/media/immich.nix
     ./config/media/navidrome.nix
 
     ./config/language/omnipoly.nix
@@ -43,7 +44,6 @@
 
     ./config/web/caddy.nix
     ./config/web/forgejo.nix
-    ./config/web/immich.nix
     ./config/web/miniflux.nix
     ./config/web/searx.nix
     ./config/web/vaultwarden.nix
