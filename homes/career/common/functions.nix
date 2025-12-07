@@ -7,7 +7,7 @@ let
 
   scpOptions = [
     "PubkeyAuthentication=no"
-    "StrictHostKeyChecking=accept-new"
+    "StrictHostKeyChecking=no"
   ];
 
   scpDefaults = lib.concatStringsSep " " (scpFlags ++ map (opt: "-o ${opt}") scpOptions);
