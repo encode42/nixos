@@ -1,3 +1,0 @@
-{
-  # TODO: Power management, mostly
-}

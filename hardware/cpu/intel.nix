@@ -6,8 +6,6 @@
 
 {
   imports = [
-    ./common.nix
-
     nixos-hardware.nixosModules.common-cpu-intel
   ];
 

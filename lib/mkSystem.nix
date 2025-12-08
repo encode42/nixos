@@ -49,7 +49,9 @@ lib.nixosSystem {
     }
   ]
   ++ builtins.attrValues inputs.encode42-packages.nixosModules
-  ++ lib.optional isLaptop ../hardware/laptop.nix
+  ++ lib.optionals isLaptop [
+    ../hardware/battery.nix
+  ]
   ++ extraModules;
 
   specialArgs = {
