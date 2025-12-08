@@ -19,7 +19,9 @@
     (flakeRoot + /modules/common)
     (flakeRoot + /modules/common/boot/systemd-boot.nix)
 
+    (flakeRoot + /modules/desktop)
     (flakeRoot + /modules/desktop/environments/gnome.nix)
+    (flakeRoot + /modules/desktop/system/gamemode.nix)
 
     ./users
   ];

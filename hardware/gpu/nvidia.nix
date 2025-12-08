@@ -17,7 +17,7 @@
   ++ lib.optional isLaptop "modesetting";
 
   hardware.nvidia = {
-    open = false; # Currently unable to build
+    open = true;
 
     modesetting.enable = isLaptop;
 
@@ -33,4 +33,6 @@
   );
 
   services.immich.settings.ffmpeg.accel = "nvenc";
+
+  programs.gamemode.settings.gpu.nv_powermizer_mode = 1;
 }

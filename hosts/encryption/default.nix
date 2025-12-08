@@ -22,6 +22,7 @@
 
     (flakeRoot + /modules/desktop)
     (flakeRoot + /modules/desktop/environments/gnome.nix)
+    (flakeRoot + /modules/desktop/system/gamemode.nix)
 
     ./users
   ];

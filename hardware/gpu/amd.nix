@@ -33,4 +33,6 @@
   ];
 
   services.immich.settings.ffmpeg.accel = "vaapi";
+
+  programs.gamemode.settings.gpu.amd_performance_level = "high";
 }
