@@ -31,6 +31,7 @@
           gnomeExtensions.tiling-shell.extensionUuid
           gnomeExtensions.hide-top-bar.extensionUuid
           gnomeExtensions.blur-my-shell.extensionUuid
+          gnomeExtensions.color-picker.extensionUuid
         ];
       };
 
@@ -107,6 +108,12 @@
       "org/gnome/shell/extensions/blur-my-shell/overview" = {
         style-components = 1;
       };
+
+      "org/gnome/shell/extensions/color-picker" = {
+        enable-format = true;
+        enable-shortcut = true;
+        enable-systray = false;
+      };
     };
   };
 
@@ -114,6 +121,7 @@
     gnomeExtensions.hide-top-bar
     gnomeExtensions.tiling-shell
     gnomeExtensions.blur-my-shell
+    gnomeExtensions.color-picker
 
     jetbrains-mono
   ];
