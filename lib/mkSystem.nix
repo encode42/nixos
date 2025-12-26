@@ -64,6 +64,7 @@ lib.nixosSystem {
       hostName
       ;
 
+    # TODO: use better inherit syntax for these
     lanzaboote = inputs.lanzaboote;
     nixos-hardware = inputs.nixos-hardware;
     home-manager = inputs.home-manager;

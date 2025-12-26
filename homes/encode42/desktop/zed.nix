@@ -60,7 +60,8 @@ in
       lsp = {
         nil.settings = {
           nix = {
-            maxMemoryMb = 10240;
+            # TODO: This is way too much
+            maxMemoryMb = 16384;
 
             flake = {
               autoArchive = true;

@@ -44,10 +44,12 @@
         "browser.safebrowsing.phishing.enabled" = false;
       };
 
+      # TODO: configure them too
       extensions = {
         packages = with firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
           fastforwardteam
           indie-wiki-buddy
+          linkwarden
         ];
 
         force = true;

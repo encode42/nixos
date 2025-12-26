@@ -10,6 +10,7 @@
   ];
 
   home-manager = {
+    # TODO: Possible to only import these modules when needed?
     sharedModules = [
       nixcord.homeModules.nixcord
     ];
