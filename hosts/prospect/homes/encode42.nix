@@ -15,6 +15,7 @@
 
     (flakeRoot + /homes/shared/desktop/prismlauncher.nix)
 
+    ./config/games.nix
     ./config/pegasus.nix
   ];
 }

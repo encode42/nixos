@@ -17,11 +17,10 @@ let
     ".local/share/Steam/steamapps/*.acf"
     ".local/share/Steam/steamapps/common"
 
-    ".local/share/PrismLauncher/prismlauncher.cfg" # TODO: Create
+    ".local/share/PrismLauncher/prismlauncher.cfg"
     ".local/share/PrismLauncher/instances"
 
-    ".config/mgba/config.ini" # TODO: Create
-    ".mgba" # TODO: Move to .config/mgba
+    ".blastem-saves"
   ];
 
   rsyncExcludes = builtins.concatStringsSep " \\\n" (
@@ -30,7 +29,7 @@ let
 in
 {
   imports = [
-    ../config/games.nix
+    ./config/games.nix
   ];
 
   services.displayManager.autoLogin.enable = true;
@@ -44,23 +43,11 @@ in
 
   home-manager.users.guest = {
     imports = [
-      ../homes/config/games.nix
       ../homes/guest.nix
     ];
 
-    dconf.settings = {
-      "org/gnome/desktop/screensaver" = {
-        lock-enabled = false;
-        lock-on-suspend = false;
-      };
-    };
-
     home.stateVersion = "25.05";
   };
-
-  environment.systemPackages = with pkgs; [
-    rsync
-  ];
 
   systemd.services.clean-guest-home = {
     description = "Perform guest account cleanup";

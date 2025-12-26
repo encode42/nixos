@@ -12,5 +12,15 @@
     (flakeRoot + /homes/shared/desktop/firefox.nix)
 
     (flakeRoot + /homes/shared/desktop/prismlauncher.nix)
+
+    ./config/games.nix
+    ./config/pegasus.nix
   ];
+
+  dconf.settings = {
+    "org/gnome/desktop/screensaver" = {
+      lock-enabled = false;
+      lock-on-suspend = false;
+    };
+  };
 }
