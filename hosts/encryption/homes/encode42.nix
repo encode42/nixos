@@ -61,11 +61,11 @@ in
   };
 
   home.packages = with pkgs; [
-    ffmpeg
-    rsgain
     audacity
     puddletag
     mediaelch
+
+    supersonic
 
     blockbench
 

@@ -23,6 +23,8 @@
   ];
 
   home.packages = with pkgs; [
+    supersonic
+
     r2modman
 
     slack
