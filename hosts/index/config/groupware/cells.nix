@@ -1,6 +1,9 @@
 { flakeRoot, ... }:
 
 let
+  hostname = "drive.encrypted.group";
+  localHostname = "drive.local.encrypted.group"; # TODO: this can change
+
   cellsModule = import (flakeRoot + /packages/server/groupware/cells.nix) {
     hosts = [
       {
@@ -8,7 +11,7 @@ let
         ssl = "internal";
       }
       {
-        name = "drive.encrypted.group";
+        name = hostname;
         ssl = "cloudflare";
 
         useLocal = true;
@@ -36,4 +39,8 @@ in
     "/mnt/apps/pydio"
     "/mnt/data/pydio"
   ];
+
+  services.collabora-online = {
+    aliasGroups = [ { host = "https://${hostname}:443"; } { host = "https://${localHostname}:443"; } ]; # TODO: messy
+  };
 }

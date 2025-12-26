@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-personal, ... }:
 
 # Socket support: https://github.com/CollaboraOnline/online/issues/7156
 
@@ -9,6 +9,8 @@
 
   services.collabora-online = {
     enable = true;
+
+    package = pkgs-personal.collabora-online;
 
     settings = {
       languagetool = {
@@ -38,7 +40,11 @@
       };
 
       ssl = {
-        enable = false;
+        # SSL is not needed as Collabora will always be run locally and/or reverse proxied with SSL.
+        # However, SSL is still required by some services (Pydio Cells) in order to connect through secure websockets.
+        enable = true;
+        termination = true;
+        ssl_verification = false;
       };
 
       wasm = {
