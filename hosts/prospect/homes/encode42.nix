@@ -14,5 +14,7 @@
     (flakeRoot + /homes/encode42/desktop/firefox.nix)
 
     (flakeRoot + /homes/shared/desktop/prismlauncher.nix)
+
+    ./config/pegasus.nix
   ];
 }
