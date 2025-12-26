@@ -51,7 +51,7 @@
     "kernel.unprivileged_userns_clone" = 1;
   };
 
-  environment.systemPackages = with pkgs; [
+  fonts.packages = with pkgs; [
     open-sans
     fira-sans
     ubuntu-sans
