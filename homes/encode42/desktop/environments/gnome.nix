@@ -20,6 +20,7 @@
       };
 
       "org/gnome/Console" = {
+        use-system-font = false;
         custom-font = "JetBrains Mono 11";
       };
 
