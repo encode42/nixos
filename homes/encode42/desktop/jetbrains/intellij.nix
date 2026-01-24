@@ -7,7 +7,7 @@
 {
   home.packages = [
     (flakeLib.customJetbrainsPackage {
-      idePackage = pkgs.jetbrains.idea-ultimate;
+      idePackage = pkgs.jetbrains.idea-oss;
 
       pluginIds = [
         "systems.fehn.intellijdirenv"
