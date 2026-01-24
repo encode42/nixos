@@ -1,5 +1,10 @@
 { firefox-addons, pkgs, ... }:
 
+let
+  kagiIcon = "https://kagi.com/favicon.ico";
+  nixosIcon = "https://wiki.nixos.org/favicon.ico";
+  homeManagerIcon = "https://home-manager-options.extranix.com/images/favicon.ico";
+in
 {
   imports = [
     ../../shared/desktop/firefox.nix
@@ -56,33 +61,57 @@
       };
 
       search = {
-        default = "searx";
+        default = "kagi";
 
         engines = {
-          searx = {
-            name = "encrypted group search";
-            definedAliases = [ "@searx" ];
+          kagi = {
+            name = "Kagi";
+            definedAliases = [ "@kagi" ];
+
+            iconMapObj."16" = kagiIcon;
 
             urls = [
               {
-                template = "https://search.encrypted.group/search?q={searchTerms}";
+                template = "https://kagi.com/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+          };
+
+          nixos-wiki = {
+            name = "NixOS Wiki";
+            definedAliases = [ "@nixos-wiki" ];
+
+            iconMapObj."16" = nixosIcon;
+
+            urls = [
+              {
+                template = "https://wiki.nixos.org/w/index.php";
+                params = [
+                  {
+                    name = "search";
+                    value = "{searchTerms}";
+                  }
+                ];
               }
             ];
           };
 
           nix-packages = {
             name = "Nix Packages";
-            iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
             definedAliases = [ "@nixpkgs" ];
+
+            iconMapObj."16" = nixosIcon;
 
             urls = [
               {
                 template = "https://search.nixos.org/packages";
                 params = [
-                  {
-                    name = "type";
-                    value = "packages";
-                  }
                   {
                     name = "query";
                     value = "{searchTerms}";
@@ -94,17 +123,14 @@
 
           nixos-options = {
             name = "NixOS Options";
-            iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
             definedAliases = [ "@nixos" ];
+
+            iconMapObj."16" = nixosIcon;
 
             urls = [
               {
                 template = "https://search.nixos.org/options";
                 params = [
-                  {
-                    name = "type";
-                    value = "options";
-                  }
                   {
                     name = "query";
                     value = "{searchTerms}";
@@ -114,27 +140,45 @@
             ];
           };
 
-          nixos-wiki = {
-            name = "NixOS Wiki";
-            iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
-            definedAliases = [ "@nixos-wiki" ];
+          home-options = {
+            name = "Home Options";
+            definedAliases = [
+              "@home-options"
+              "@home-manager"
+            ];
+
+            iconMapObj."16" = homeManagerIcon;
 
             urls = [
               {
-                template = "https://wiki.nixos.org/w/index.php?search={searchTerms}";
+                template = "https://home-manager-options.extranix.com/";
+                params = [
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
               }
             ];
           };
 
+          wikipedia.definedAliases = [ "@wiki" ];
+
+          amazondotcom-us.metaData.hidden = true;
           bing.metaData.hidden = true;
+          ebay.metaData.hidden = true;
+          perplexity.metaData.hidden = true;
         };
 
         order = [
+          "kagi"
           "ddg"
           "google"
+          "wikipedia"
+          "nixos-wiki"
           "nix-packages"
           "nixos-options"
-          "nixos-wiki"
+          "home-options"
         ];
       };
     };
