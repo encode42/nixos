@@ -51,7 +51,7 @@
         }
         {
           type = "initsystem";
-          key = "├ ⏱️";
+          key = "├ ⏱️ ";
           keyColor = "#ed8796";
         }
         {
@@ -73,17 +73,17 @@
         }
         {
           type = "wm";
-          key = "├ 🦟";
+          key = "├ 🪟";
           keyColor = "#f5a97f";
         }
         {
           type = "de";
-          key = "├ 🖥";
+          key = "├ 🖥️ ";
           keyColor = "#f5a97f";
         }
         {
           type = "terminal";
-          key = "├ 🮮";
+          key = "├ 🎛️ ";
           keyColor = "#f5a97f";
         }
         {
@@ -98,12 +98,12 @@
         }
         {
           type = "cursor";
-          key = "├ 🖱";
+          key = "├ 🖱 ";
           keyColor = "#f5a97f";
         }
         {
           type = "font";
-          key = "└ 🖤";
+          key = "└ 🔡";
           keyColor = "#f5a97f";
         }
         "break"
@@ -125,7 +125,7 @@
         }
         {
           type = "gpu";
-          key = "├ ⚙️";
+          key = "├ ⚙️ ";
           keyColor = "#a6da95";
         }
         {
@@ -168,7 +168,18 @@
         }
         {
           type = "custom";
-          key = "├ 🖱";
+          key = "├ ⌨️";
+          keyColor = "#8aadf4";
+          format = "";
+        }
+        {
+          type = "keyboard";
+          key = "│ └";
+          keyColor = "#8aadf4";
+        }
+        {
+          type = "custom";
+          key = "├ 🖱️ ";
           keyColor = "#8aadf4";
           format = "";
         }
