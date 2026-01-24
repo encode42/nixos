@@ -1,15 +1,8 @@
+{ flakeRoot, ... }:
+
 {
   nix = {
     channel.enable = false;
-
-    gc = {
-      automatic = true;
-      dates = "weekly";
-
-      persistent = true;
-
-      options = "--delete-older-than 7d";
-    };
 
     optimise = {
       automatic = true;
@@ -27,4 +20,18 @@
   };
 
   documentation.man.enable = false;
+
+  programs.nh = {
+    enable = true;
+
+    flake = toString flakeRoot;
+
+    clean = {
+      enable = true;
+
+      dates = "weekly";
+
+      extraArgs = "--delete-older-than 7d";
+    };
+  };
 }
