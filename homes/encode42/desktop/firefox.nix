@@ -1,9 +1,7 @@
 { firefox-addons, pkgs, ... }:
 
 let
-  kagiIcon = "https://kagi.com/favicon.ico";
   nixosIcon = "https://wiki.nixos.org/favicon.ico";
-  homeManagerIcon = "https://home-manager-options.extranix.com/images/favicon.ico";
 in
 {
   imports = [
@@ -68,7 +66,7 @@ in
             name = "Kagi";
             definedAliases = [ "@kagi" ];
 
-            iconMapObj."16" = kagiIcon;
+            iconMapObj."16" = "https://kagi.com/favicon.ico";
 
             urls = [
               {
@@ -76,6 +74,25 @@ in
                 params = [
                   {
                     name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+          };
+
+          minecraft-wiki = {
+            name = "Minecraft Wiki";
+            definedAliases = [ "@minecraft-wiki" ];
+
+            iconMapObj."16" = "https://minecraft.wiki/favicon.ico";
+
+            urls = [
+              {
+                template = "https://minecraft.wiki/w/Special:Search";
+                params = [
+                  {
+                    name = "search";
                     value = "{searchTerms}";
                   }
                 ];
@@ -147,7 +164,7 @@ in
               "@home-manager"
             ];
 
-            iconMapObj."16" = homeManagerIcon;
+            iconMapObj."16" = "https://home-manager-options.extranix.com/images/favicon.ico";
 
             urls = [
               {
@@ -175,6 +192,7 @@ in
           "ddg"
           "google"
           "wikipedia"
+          "minecraft-wiki"
           "nixos-wiki"
           "nix-packages"
           "nixos-options"
