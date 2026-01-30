@@ -14,7 +14,7 @@
     enable = true;
 
     environment = {
-      BIND_LOCALHOST_ONLY = true;
+      BIND_LOCALHOST_ONLY = "true";
     };
   };
 
