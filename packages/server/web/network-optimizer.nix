@@ -19,6 +19,6 @@
   };
 
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
-    reverse_proxy :${config.services.network-optimizer.port}
+    reverse_proxy :${toString config.services.network-optimizer.port}
   '';
 }
