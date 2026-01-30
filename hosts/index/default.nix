@@ -47,6 +47,7 @@
     ./config/web/forgejo.nix
     ./config/web/linkwarden.nix
     ./config/web/miniflux.nix
+    ./config/web/network-optimization.nix
     ./config/web/vaultwarden.nix
     #./config/web/wakapi.nix
 
