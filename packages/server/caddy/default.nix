@@ -29,7 +29,7 @@
         "github.com/Elegant996/scgi-transport@v1.1.6"
       ];
 
-      hash = "sha256-SKopzhjOfy+ZXrl3QGECVYmWuq8Kv6cBy5OxgAZ3zF0=";
+      hash = "sha256-QNDVztTcO66k47eFb5b0OyOfnCHuI5ret8Dwk7t+gSY=";
     };
   };
 
