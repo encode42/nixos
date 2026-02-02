@@ -1,4 +1,4 @@
-{ flakeRoot, ... }:
+{ flakeRoot, lib, pkgs-personal, ... }:
 
 let
   host = "network-optimizer.lan";
@@ -22,6 +22,6 @@ in
       REVERSE_PROXIED_HOST_NAME = host;
     };
 
-    environmentFile = "/mnt/apps/network-optimizer/.network-optimizer.env";
+    environmentFile = "/mnt/apps/network-optimizer/.env";
   };
 }
