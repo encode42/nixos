@@ -1,7 +1,7 @@
 { flakeRoot, lib, ... }:
 
 let
-  host = "pds.encrypted.group";
+  host = "encrypted.group";
 
   blueskyPdsModule = import (flakeRoot + /packages/server/atmosphere/bluesky-pds.nix) {
     hosts = [
