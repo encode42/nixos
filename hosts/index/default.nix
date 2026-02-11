@@ -26,6 +26,8 @@
     ./config/zfs.nix
     ./config/nfs.nix
 
+    ./config/atmosphere/bluesky-pds.nix
+
     ./config/databases/mysql.nix
     ./config/databases/postgresql.nix
 
