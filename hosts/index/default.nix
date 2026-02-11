@@ -27,7 +27,8 @@
     ./config/nfs.nix
 
     ./config/atmosphere/bluesky-pds.nix
-    ./config/atmosphere/tangled.nix
+    ./config/atmosphere/tangled-knot.nix
+    ./config/atmosphere/tangled-spindle.nix
 
     ./config/databases/mysql.nix
     ./config/databases/postgresql.nix

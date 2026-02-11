@@ -10,18 +10,16 @@
 }:
 
 let
-  port = 5555;
+  port = 6555;
 in
 {
-  services.tangled = {
-    knot = {
-      enable = true;
+  services.tangled.spindle = {
+    enable = true;
 
-      server = {
-        listenAddr = "0.0.0.0:${toString port}";
-      };
+    server = {
+      listenAddr = "0.0.0.0:${toString port}";
 
-      openFirewall = false;
+      maxJobCount = 3;
     };
   };
 

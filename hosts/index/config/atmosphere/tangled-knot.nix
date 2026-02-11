@@ -3,7 +3,7 @@
 let
   host = "knot.encrypted.group";
 
-  tangledModule = import (flakeRoot + /packages/server/atmosphere/tangled.nix) {
+  tangledKnotModule = import (flakeRoot + /packages/server/atmosphere/tangled-knot.nix) {
     hosts = [
       {
         name = host;
@@ -14,7 +14,7 @@ let
 in
 {
   imports = [
-    tangledModule
+    tangledKnotModule
   ];
 
   services.tangled.knot = {
