@@ -5,6 +5,7 @@
 {
   config,
   flakeLib,
+  pkgs-unstable,
   ...
 }:
 
@@ -14,6 +15,9 @@ in
 {
   services.navidrome = {
     enable = true;
+
+    # Unstable until #481611 is closed
+    package = pkgs-unstable.navidrome;
 
     settings = {
       Address = "unix:${socket}";
