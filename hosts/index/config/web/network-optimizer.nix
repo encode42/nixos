@@ -1,4 +1,4 @@
-{ flakeRoot, lib, pkgs-personal, ... }:
+{ flakeRoot, ... }:
 
 let
   host = "network-optimizer.lan";
