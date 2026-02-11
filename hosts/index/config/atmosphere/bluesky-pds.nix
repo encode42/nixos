@@ -6,14 +6,8 @@ let
   blueskyPdsModule = import (flakeRoot + /packages/server/atmosphere/bluesky-pds.nix) {
     hosts = [
       {
-        name = "bluesky-pds.lan";
-        ssl = "internal";
-      }
-      {
         name = host;
         ssl = "cloudflare";
-
-        useLocal = true;
       }
     ];
   };
