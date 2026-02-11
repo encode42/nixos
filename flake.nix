@@ -58,6 +58,12 @@
       url = "github:encode42/emby-server-flake";
     };
 
+    tangled = {
+      url = "git+https://tangled.org/@tangled.org/core";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Community-maintained package repositories
     encode42-packages = {
       url = "github:encode42/nixos-packages";

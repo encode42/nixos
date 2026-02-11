@@ -37,6 +37,8 @@ in
       extraModules = [
         inputs.vpn-confinement.nixosModules.default
         inputs.emby-flake.nixosModules.default
+        inputs.tangled.nixosModules.knot
+        inputs.tangled.nixosModules.spindle
       ];
     };
   };
