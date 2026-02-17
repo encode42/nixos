@@ -1,4 +1,4 @@
-{ flakeRoot, ... }:
+{ config, flakeRoot, ... }:
 
 let
   host = "knot.encrypted.group";
@@ -29,5 +29,9 @@ in
 
       owner = "did:plc:2uoarm26m6b24zqbq7h2kpqs";
     };
+
+    openFirewall = true;
   };
+
+  services.openssh.settings.AllowUsers = [ config.services.tangled.knot.gitUser ];
 }

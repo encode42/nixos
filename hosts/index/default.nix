@@ -23,8 +23,9 @@
     (flakeRoot + /packages/server/iperf.nix)
 
     ./config/netdata-agent.nix
-    ./config/zfs.nix
     ./config/nfs.nix
+    ./config/ssh.nix
+    ./config/zfs.nix
 
     ./config/atmosphere/bluesky-pds.nix
     ./config/atmosphere/tangled-knot.nix

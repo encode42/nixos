@@ -20,7 +20,7 @@ in
       listenAddr = "0.0.0.0:${toString port}";
     };
 
-    openFirewall = false;
+    openFirewall = lib.mkDefault false;
   };
 
   services.caddy.virtualHosts = flakeLib.mkProxies hosts ''
