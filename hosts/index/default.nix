@@ -49,12 +49,13 @@
     ./config/sharing/soulseek.nix
 
     ./config/web/caddy.nix
-    ./config/web/forgejo.nix
+    #./config/web/forgejo.nix
     ./config/web/linkwarden.nix
     ./config/web/miniflux.nix
     ./config/web/network-optimizer.nix
     ./config/web/vaultwarden.nix
     #./config/web/wakapi.nix
+    ./config/web/zipline.nix
 
     ./users
   ];

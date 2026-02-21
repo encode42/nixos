@@ -1,7 +1,7 @@
 { lib }:
 
 # hosts:
-# [ { name = str; ssl = str; useLocal = bool?; } ];
+# [ { name = str; ssl = str; useLocal = bool?; extraConfig = string?; } ];
 hosts: proxy:
 
 let
@@ -32,6 +32,8 @@ builtins.listToAttrs (
         ${sslModules.${host.ssl}}
 
         ${proxy}
+
+        ${host.extraConfig or ""}
       '';
     };
   }) hosts
