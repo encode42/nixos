@@ -9,6 +9,9 @@
     enable = true;
 
     settings = {
+      FILES_DEFAULT_EXPIRATION = "30d";
+      FILES_REMOVE_GPS_METADATA = "true";
+
       URLS_ROUTE = "/";
       FILES_ROUTE = "/";
 
@@ -16,18 +19,19 @@
       FILES_LENGTH = 3;
 
       FILES_MAX_FILE_SIZE = "500mb";
+      FILES_DISABLED_EXTENSIONS = "exe,dmg,bat,bash,sh,html,htmx,html5";
 
       CORE_PORT = 3030;
 
-      FEATURES_USER_REGISTRATION = false;
-      FEATURES_OAUTH_REGISTRATION = false;
+      MFA_TOTP_ENABLED = "true";
 
-      FEATURES_METRICS_ENABLED = false;
+      FEATURES_USER_REGISTRATION = "false";
+      FEATURES_OAUTH_REGISTRATION = "false";
 
-      FEATURES_VERSION_CHECKING = false;
+      FEATURES_HEALTHCHECK = "false";
+      FEATURES_METRICS_ENABLED = "false";
 
-      # https://zipline.diced.sh/docs/config/settings#variables-9
-      # https://zipline.diced.sh/docs/config/settings#pwa
+      FEATURES_VERSION_CHECKING = "false";
     };
   };
 

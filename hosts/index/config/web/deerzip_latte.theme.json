@@ -1,0 +1,35 @@
+{
+  "name": "deerzip (Latte)",
+  "id": "deerzip_latte",
+  "colorScheme": "light",
+  "colors": {
+    "mauve": [
+      "#8839ef",
+      "#8839ef",
+      "#8839ef",
+      "#8839ef",
+      "#8839ef",
+      "#8839ef",
+      "#8839ef",
+      "#8839ef",
+      "#8839ef",
+      "#8839ef"
+    ],
+    "gray": [
+      "#ccd0da",
+      "#ccd0da",
+      "#9ca0b0",
+      "#ccd0da",
+      "#acb0be",
+      "#bcc0cc",
+      "#5c5f77",
+      "#eff1f5",
+      "#e6e9ef",
+      "#dce0e8"
+    ]
+  },
+  "white": "#eff1f5",
+  "primaryColor": "mauve",
+  "mainBackgroundColor": "#e6e9ef",
+  "extraCss": "header h1 { font-family: 'Overpass' !important; font-style: italic; margin-top: 4px !important; } @font-face { font-family: 'Overpass'; font-style: italic; font-display: swap; font-weight: 700; src: url(https://cdn.jsdelivr.net/fontsource/fonts/overpass@latest/latin-700-italic.woff2) format('woff2'); }"
+}
