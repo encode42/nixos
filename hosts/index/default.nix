@@ -55,7 +55,7 @@
     ./config/web/network-optimizer.nix
     ./config/web/vaultwarden.nix
     #./config/web/wakapi.nix
-    ./config/web/zipline.nix
+    ./config/web/zipline
 
     ./users
   ];
