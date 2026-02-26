@@ -1,6 +1,8 @@
 { flakeRoot, config, ... }:
 
 let
+  host = "hear.encrypted.group";
+
   navidromeModule = import (flakeRoot + /packages/server/media/navidrome.nix) {
     hosts = [
       {
@@ -8,7 +10,7 @@ let
         ssl = "internal";
       }
       {
-        name = "hear.encrypted.group";
+        name = host;
         ssl = "cloudflare";
 
         useLocal = true;
@@ -25,6 +27,8 @@ in
 
   services.navidrome = {
     settings = {
+      BaseURL = "https://${host}";
+
       DataFolder = "/mnt/apps/navidrome";
       MusicFolder = "/mnt/data/media/Music";
     };

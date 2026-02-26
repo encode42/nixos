@@ -5,7 +5,8 @@
 {
   config,
   flakeLib,
-  pkgs-unstable,
+  pkgs-personal,
+  lib,
   ...
 }:
 
@@ -16,8 +17,8 @@ in
   services.navidrome = {
     enable = true;
 
-    # Unstable until #481611 is closed
-    package = pkgs-unstable.navidrome;
+    # Unstable until #488091 is merged
+    package = pkgs-personal.navidrome;
 
     settings = {
       Address = "unix:${socket}";
@@ -67,6 +68,8 @@ in
       TranscodingCacheSize = "8GB";
     };
   };
+
+  systemd.services.navidrome.serviceConfig.MemoryDenyWriteExecute = lib.mkForce false;
 
   # Caddy reverse proxy configuration
   users.users.caddy.extraGroups = [ config.users.users.navidrome.group ];
